@@ -366,25 +366,212 @@
             color: #f1f5f9;
         }
 
-        /* Responsive */
-        @media (max-width: 480px) {
+        /* ========== Responsive ========== */
+
+        /* Tablets */
+        @media (max-width: 768px) {
+            body {
+                padding: 16px;
+                align-items: flex-start;
+                padding-top: 30px;
+            }
+
             .card {
-                padding: 28px 20px;
+                max-width: 100%;
+                padding: 32px 24px;
                 border-radius: 20px;
+            }
+
+            .card-header {
+                margin-bottom: 24px;
+            }
+
+            .card-header .icon {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+                border-radius: 16px;
+            }
+
+            .card-header h1 {
+                font-size: 22px;
+            }
+
+            .modal {
+                padding: 32px 24px;
+                border-radius: 20px;
+                max-width: 400px;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                padding-top: 20px;
+            }
+
+            .card {
+                padding: 24px 16px;
+                border-radius: 18px;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            }
+
+            .card-header {
+                margin-bottom: 20px;
+            }
+
+            .card-header .icon {
+                width: 56px;
+                height: 56px;
+                font-size: 26px;
+                border-radius: 14px;
+                margin-bottom: 12px;
             }
 
             .card-header h1 {
                 font-size: 20px;
             }
 
-            input, textarea {
-                padding: 12px 42px 12px 12px;
+            .card-header p {
+                font-size: 13px;
+            }
+
+            .form-group {
+                margin-bottom: 16px;
+            }
+
+            .form-group label {
+                font-size: 13px;
+                margin-bottom: 6px;
+            }
+
+            input, textarea, select {
+                padding: 12px 40px 12px 12px;
                 font-size: 14px;
+                border-radius: 12px;
+            }
+
+            .input-wrapper .input-icon {
+                font-size: 16px;
+                right: 12px;
+            }
+
+            textarea {
+                min-height: 80px;
             }
 
             .btn {
                 padding: 14px;
+                font-size: 15px;
+                border-radius: 12px;
+                margin-top: 20px;
+            }
+
+            .modal-overlay {
+                padding: 12px;
+            }
+
+            .modal {
+                padding: 28px 18px;
+                border-radius: 18px;
+                max-width: 100%;
+            }
+
+            .modal .success-icon {
+                width: 68px;
+                height: 68px;
+                font-size: 34px;
+                margin-bottom: 16px;
+            }
+
+            .modal h2 {
+                font-size: 18px;
+            }
+
+            .modal p {
+                font-size: 13px;
+                margin-bottom: 20px;
+            }
+
+            .btn-whatsapp {
+                padding: 12px;
+                font-size: 15px;
+                border-radius: 12px;
+            }
+
+            .btn-close {
+                padding: 12px;
+                font-size: 14px;
+                border-radius: 12px;
+            }
+
+            .field-hint {
+                font-size: 10px;
+            }
+        }
+
+        /* Very small phones */
+        @media (max-width: 360px) {
+            body {
+                padding: 6px;
+                padding-top: 12px;
+            }
+
+            .card {
+                padding: 20px 14px;
+                border-radius: 16px;
+            }
+
+            .card-header h1 {
+                font-size: 18px;
+            }
+
+            .card-header .icon {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            input, textarea, select {
+                padding: 10px 38px 10px 10px;
+                font-size: 13px;
+            }
+
+            .btn {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .modal {
+                padding: 22px 14px;
+            }
+
+            .modal h2 {
                 font-size: 16px;
+            }
+        }
+
+        /* Landscape orientation on mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            body {
+                align-items: flex-start;
+                padding-top: 10px;
+            }
+
+            .card-header .icon {
+                width: 48px;
+                height: 48px;
+                font-size: 22px;
+                margin-bottom: 8px;
+            }
+
+            .card-header {
+                margin-bottom: 16px;
+            }
+
+            .form-group {
+                margin-bottom: 12px;
             }
         }
 
