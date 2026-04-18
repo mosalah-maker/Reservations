@@ -2,10 +2,11 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حجز سماعات الثانوية العامة</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎧</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>أبو زهرة | الحجز السينمائي لسماعات الثانوية العامة</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23F5C542'>🎧</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -16,7 +17,7 @@
         body {
             font-family: 'Cairo', sans-serif;
             min-height: 100vh;
-            background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 30%, #0d1117 50%, #1a0a2e 70%, #0a0a1a 100%);
+            background: #050301;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -25,820 +26,577 @@
             overflow-x: hidden;
         }
 
-        body::before {
-            content: '';
+        /* ========== BACKGROUND CINEMATIC ANIMATION ========== */
+        .animated-bg {
             position: fixed;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 40%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 60%, rgba(236, 72, 153, 0.07) 0%, transparent 50%),
-                        radial-gradient(circle at 50% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 40%);
-            animation: bgFloat 20s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 0;
-        }
-
-        @keyframes bgFloat {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, -30px) rotate(2deg); }
-            66% { transform: translate(-20px, 20px) rotate(-1deg); }
-        }
-
-        .card {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            max-width: 520px;
-            background: rgba(26, 10, 46, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            border-radius: 24px;
-            padding: 40px 32px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5),
-                        0 0 80px rgba(139, 92, 246, 0.08);
-        }
-
-        .card-header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .card-header .icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #8b5cf6, #ec4899);
-            border-radius: 22px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-            font-size: 38px;
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
-            animation: iconPulse 3s ease-in-out infinite;
-        }
-
-        @keyframes iconPulse {
-            0%, 100% { box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4); }
-            50% { box-shadow: 0 10px 40px rgba(139, 92, 246, 0.6), 0 0 20px rgba(236, 72, 153, 0.3); }
-        }
-
-        .card-header h1 {
-            color: #f1f5f9;
-            font-size: 24px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #c4b5fd, #f0abfc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .card-header p {
-            color: #a78bfa;
-            font-size: 14px;
-            margin-top: 6px;
-        }
-
-        .card-header .badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #7c3aed33, #ec489933);
-            border: 1px solid #7c3aed55;
-            color: #c4b5fd;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 4px 14px;
-            border-radius: 20px;
-            margin-top: 10px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            color: #c4b5fd;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .form-group label .required {
-            color: #f472b6;
-            margin-right: 2px;
-        }
-
-        .form-group label .optional {
-            color: #6d5b95;
-            font-size: 12px;
-            font-weight: 400;
-        }
-
-        .input-wrapper {
-            position: relative;
-        }
-
-        .input-wrapper .input-icon {
-            position: absolute;
-            right: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 18px;
-            z-index: 2;
-        }
-
-        .form-group textarea ~ .input-icon,
-        .input-wrapper:has(textarea) .input-icon {
-            top: 18px;
-            transform: none;
-        }
-
-        input, textarea, select {
-            width: 100%;
-            padding: 14px 46px 14px 14px;
-            background: rgba(10, 10, 26, 0.6);
-            border: 2px solid rgba(139, 92, 246, 0.2);
-            border-radius: 14px;
-            color: #f1f5f9;
-            font-family: 'Cairo', sans-serif;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            outline: none;
-        }
-
-        input::placeholder, textarea::placeholder {
-            color: #6d5b95;
-        }
-
-        input:focus, textarea:focus {
-            border-color: #8b5cf6;
-            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
-            background: rgba(10, 10, 26, 0.8);
-        }
-
-        input.error, textarea.error {
-            border-color: #ef4444;
-            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
-        }
-
-        .error-msg {
-            color: #f87171;
-            font-size: 12px;
-            margin-top: 6px;
-            display: none;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .error-msg.show {
-            display: flex;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 90px;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-            color: white;
-            border: none;
-            border-radius: 14px;
-            font-family: 'Cairo', sans-serif;
-            font-size: 17px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 28px;
-            position: relative;
             overflow: hidden;
         }
 
-        .btn:hover:not(:disabled) {
-            background: linear-gradient(135deg, #7c3aed, #6d28d9);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        .bg-gradient {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 40%, rgba(229, 170, 50, 0.12) 0%, #030101 90%);
+            animation: breatheBg 8s ease-in-out infinite;
         }
 
-        .btn:active:not(:disabled) {
-            transform: translateY(0);
+        @keyframes breatheBg {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
         }
 
-        .btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
+        /* stars floating */
+        .star-field {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 15% 30%, #F5C542, rgba(0,0,0,0)),
+                radial-gradient(3px 3px at 75% 60%, #FFD966, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90% 20%, #F5C542, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 45% 85%, #E5B83C, rgba(0,0,0,0)),
+                radial-gradient(4px 4px at 10% 70%, #FFF2C8, rgba(0,0,0,0));
+            background-repeat: no-repeat;
+            background-size: 200px 200px;
+            animation: starMove 40s linear infinite;
+            opacity: 0.5;
         }
 
-        .btn .spinner {
-            width: 22px;
-            height: 22px;
-            border: 3px solid rgba(255,255,255,0.3);
-            border-top-color: white;
+        @keyframes starMove {
+            0% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
+            100% { background-position: 100% 100%, 80% 70%, 120% 50%, 60% 90%, 40% 110%; }
+        }
+
+        /* floating golden rings */
+        .gold-ring {
+            position: absolute;
+            border: 2px solid rgba(229, 184, 60, 0.2);
             border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            display: none;
+            animation: floatRing 20s infinite linear;
         }
 
-        .btn.loading .spinner {
-            display: block;
-        }
+        .ring1 { width: 300px; height: 300px; top: -100px; right: -100px; border-width: 1px; animation-duration: 25s; }
+        .ring2 { width: 500px; height: 500px; bottom: -150px; left: -150px; border-width: 2px; animation-duration: 35s; animation-direction: reverse; }
+        .ring3 { width: 200px; height: 200px; top: 40%; left: 10%; border-width: 1px; border-color: rgba(229,184,60,0.1); animation-duration: 18s; }
 
-        .btn.loading .btn-text {
-            display: none;
-        }
-
-        .btn.loading .btn-loading-text {
-            display: inline;
-        }
-
-        .btn .btn-loading-text {
-            display: none;
-        }
-
-        @keyframes spin {
+        @keyframes floatRing {
+            from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
 
-        /* Features Strip */
+        /* Main Card */
+        .card {
+            position: relative;
+            z-index: 20;
+            width: 100%;
+            max-width: 620px;
+            background: rgba(8, 5, 2, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(229, 184, 60, 0.3);
+            border-radius: 56px;
+            padding: 30px 36px 40px;
+            box-shadow: 0 40px 70px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(229, 184, 60, 0.15) inset;
+            animation: cardGlow 3s infinite alternate;
+        }
+
+        @keyframes cardGlow {
+            0% { box-shadow: 0 40px 70px rgba(0,0,0,0.5), 0 0 0 1px rgba(229,184,60,0.1) inset; }
+            100% { box-shadow: 0 45px 80px rgba(0,0,0,0.7), 0 0 0 2px rgba(229,184,60,0.25) inset; }
+        }
+
+        /* ========== HERO SECTION with MOVING TEXT ========== */
+        .hero {
+            text-align: center;
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .logo-animation {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            animation: slideInLogo 0.8s ease-out;
+        }
+
+        @keyframes slideInLogo {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo-icon {
+            width: 85px;
+            height: 85px;
+            background: linear-gradient(145deg, #2a2418, #0e0b06);
+            border-radius: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 44px;
+            border: 1px solid #F5C542;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 0 2px rgba(245,197,66,0.2) inset;
+            animation: pulseIcon 2.5s infinite;
+        }
+
+        @keyframes pulseIcon {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245,197,66,0.4); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(245,197,66,0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245,197,66,0); }
+        }
+
+        .brand-name {
+            font-size: 42px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #F5C542, #FFE4A0, #D4AF37);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px rgba(245,197,66,0.3);
+            animation: textShine 3s infinite;
+        }
+
+        @keyframes textShine {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Animated Typing Text */
+        .moving-tagline {
+            margin-top: 18px;
+            min-height: 70px;
+        }
+
+        .dynamic-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: #F5C542;
+            display: inline-block;
+            background: rgba(0,0,0,0.5);
+            padding: 6px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
+            border-right: 3px solid #F5C542;
+            animation: blinkCursor 0.75s step-end infinite;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        @keyframes blinkCursor {
+            from, to { border-color: transparent; }
+            50% { border-color: #F5C542; }
+        }
+
+        .glow-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(229,184,60,0.12);
+            border: 1px solid rgba(229,184,60,0.5);
+            border-radius: 60px;
+            padding: 6px 18px;
+            margin-top: 15px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #FFDE9E;
+            animation: borderPulse 2s infinite;
+        }
+
+        @keyframes borderPulse {
+            0% { border-color: rgba(229,184,60,0.3); box-shadow: 0 0 0px rgba(245,197,66,0); }
+            50% { border-color: rgba(229,184,60,0.9); box-shadow: 0 0 12px rgba(245,197,66,0.3); }
+            100% { border-color: rgba(229,184,60,0.3); box-shadow: 0 0 0px rgba(245,197,66,0); }
+        }
+
+        /* Form fields */
+        .form-group {
+            margin-bottom: 22px;
+        }
+        .form-group label {
+            display: block;
+            color: #FFDE9E;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .input-wrapper {
+            position: relative;
+        }
+        .input-wrapper .input-icon {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #F5C542;
+            z-index: 2;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1.5px solid rgba(229, 184, 60, 0.3);
+            border-radius: 40px;
+            color: #FFF2DF;
+            font-family: 'Cairo', sans-serif;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+        input:focus, textarea:focus {
+            border-color: #F5C542;
+            box-shadow: 0 0 0 4px rgba(245,197,66,0.15);
+            background: #0a0602;
+        }
+        input.error, textarea.error {
+            border-color: #ff7b2c;
+        }
+        .error-msg {
+            color: #ffb347;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        .error-msg.show { display: flex; gap: 5px; align-items: center; }
+
+        /* Premium Button */
+        .btn-premium {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(95deg, #E5B83C, #B8860B);
+            border: none;
+            border-radius: 50px;
+            color: #080501;
+            font-weight: 900;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 28px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+        .btn-premium:hover {
+            transform: scale(1.02);
+            background: linear-gradient(95deg, #F5C542, #D4AF37);
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(229,184,60,0.3);
+        }
+        .spinner {
+            width: 22px;
+            height: 22px;
+            border: 3px solid rgba(0,0,0,0.2);
+            border-top-color: black;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            display: none;
+        }
+        .btn-premium.loading .spinner { display: block; }
+        .btn-premium.loading .btn-text { display: none; }
+
+        /* Features */
         .features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 24px;
+            gap: 12px;
+            margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid rgba(139, 92, 246, 0.15);
+            border-top: 1px dashed rgba(229,184,60,0.3);
         }
-
         .feature-item {
             text-align: center;
-            padding: 8px 4px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 40px;
+            padding: 10px 4px;
+            transition: 0.2s;
         }
+        .feature-item i { font-size: 24px; color: #F5C542; margin-bottom: 5px; display: block; }
+        .feature-item span { font-size: 12px; color: #FFDE9E; font-weight: 600; }
 
-        .feature-item .f-icon {
-            font-size: 20px;
-            margin-bottom: 4px;
-        }
-
-        .feature-item .f-text {
-            font-size: 11px;
-            color: #a78bfa;
-            font-weight: 600;
-        }
-
-        /* Success Modal */
+        /* Modal Animation */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(8px);
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(12px);
             display: none;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
-            padding: 20px;
+            z-index: 200;
         }
-
-        .modal-overlay.show {
-            display: flex;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal {
-            background: linear-gradient(145deg, #1a0a2e, #0a0a1a);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            border-radius: 24px;
-            padding: 40px 32px;
+        .modal-overlay.show { display: flex; animation: fadeModal 0.3s; }
+        @keyframes fadeModal { from { opacity: 0; } to { opacity: 1; } }
+        .modal-content {
+            background: #100c06;
+            border: 1px solid #F5C542;
+            border-radius: 48px;
+            padding: 40px 28px;
             text-align: center;
-            max-width: 420px;
-            width: 100%;
-            animation: modalSlide 0.4s ease;
+            max-width: 400px;
+            animation: bounceModal 0.5s;
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        @keyframes bounceModal {
+            0% { transform: scale(0.9) translateY(30px); opacity: 0; }
+            80% { transform: scale(1.02); }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
         }
-
-        @keyframes modalSlide {
-            from { opacity: 0; transform: scale(0.9) translateY(20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        .modal .success-icon {
+        .success-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
+            background: #F5C542;
             border-radius: 50%;
+            margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 40px;
-            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
-            animation: popIn 0.5s ease 0.2s both;
+            font-size: 45px;
+            color: #1a1306;
         }
-
-        @keyframes popIn {
-            from { transform: scale(0); }
-            50% { transform: scale(1.2); }
-            to { transform: scale(1); }
-        }
-
-        .modal h2 {
-            color: #f1f5f9;
-            font-size: 22px;
+        .btn-wa, .btn-close-modal {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 12px;
+            border-radius: 40px;
+            text-decoration: none;
             font-weight: 800;
         }
+        .btn-wa { background: #25D366; color: white; }
+        .btn-close-modal { background: rgba(245,197,66,0.15); color: #F5C542; border: 1px solid #F5C542; cursor: pointer; }
 
-        .modal p {
-            color: #a78bfa;
-            font-size: 14px;
-            margin-bottom: 24px;
-            line-height: 1.7;
-        }
-
-        .modal-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .btn-whatsapp {
-            padding: 14px;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            color: white;
-            border: none;
-            border-radius: 14px;
-            font-family: 'Cairo', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .btn-whatsapp:hover {
-            background: linear-gradient(135deg, #16a34a, #15803d);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
-        }
-
-        .btn-close {
-            padding: 14px;
-            background: rgba(139, 92, 246, 0.1);
-            color: #a78bfa;
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            border-radius: 14px;
-            font-family: 'Cairo', sans-serif;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-close:hover {
-            background: rgba(139, 92, 246, 0.2);
-            color: #f1f5f9;
-        }
-
-        /* ========== Responsive ========== */
-
-        @media (max-width: 768px) {
-            body {
-                padding: 16px;
-                align-items: flex-start;
-                padding-top: 30px;
-            }
-            .card {
-                max-width: 100%;
-                padding: 32px 24px;
-                border-radius: 20px;
-            }
-            .card-header { margin-bottom: 24px; }
-            .card-header .icon {
-                width: 65px;
-                height: 65px;
-                font-size: 32px;
-                border-radius: 18px;
-            }
-            .card-header h1 { font-size: 22px; }
-            .modal {
-                padding: 32px 24px;
-                border-radius: 20px;
-                max-width: 400px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-                padding-top: 20px;
-            }
-            .card {
-                padding: 24px 16px;
-                border-radius: 18px;
-            }
-            .card-header { margin-bottom: 20px; }
-            .card-header .icon {
-                width: 56px;
-                height: 56px;
-                font-size: 26px;
-                border-radius: 14px;
-                margin-bottom: 12px;
-            }
-            .card-header h1 { font-size: 19px; }
-            .card-header p { font-size: 13px; }
-            .form-group { margin-bottom: 16px; }
-            .form-group label { font-size: 13px; margin-bottom: 6px; }
-            input, textarea, select {
-                padding: 12px 40px 12px 12px;
-                font-size: 14px;
-                border-radius: 12px;
-            }
-            .input-wrapper .input-icon { font-size: 16px; right: 12px; }
-            textarea { min-height: 80px; }
-            .btn {
-                padding: 14px;
-                font-size: 15px;
-                border-radius: 12px;
-                margin-top: 20px;
-            }
-            .modal-overlay { padding: 12px; }
-            .modal {
-                padding: 28px 18px;
-                border-radius: 18px;
-                max-width: 100%;
-            }
-            .modal .success-icon {
-                width: 68px; height: 68px;
-                font-size: 34px;
-                margin-bottom: 16px;
-            }
-            .modal h2 { font-size: 18px; }
-            .modal p { font-size: 13px; margin-bottom: 20px; }
-            .btn-whatsapp { padding: 12px; font-size: 15px; border-radius: 12px; }
-            .btn-close { padding: 12px; font-size: 14px; border-radius: 12px; }
-            .field-hint { font-size: 10px; }
-            .features { gap: 6px; }
-            .feature-item .f-icon { font-size: 16px; }
-            .feature-item .f-text { font-size: 10px; }
-        }
-
-        @media (max-width: 360px) {
-            body { padding: 6px; padding-top: 12px; }
-            .card { padding: 20px 14px; border-radius: 16px; }
-            .card-header h1 { font-size: 17px; }
-            .card-header .icon { width: 50px; height: 50px; font-size: 24px; }
-            input, textarea, select { padding: 10px 38px 10px 10px; font-size: 13px; }
-            .btn { padding: 12px; font-size: 14px; }
-            .modal { padding: 22px 14px; }
-            .modal h2 { font-size: 16px; }
-            .card-header .badge { font-size: 10px; padding: 3px 10px; }
-        }
-
-        @media (max-height: 500px) and (orientation: landscape) {
-            body { align-items: flex-start; padding-top: 10px; }
-            .card-header .icon { width: 48px; height: 48px; font-size: 22px; margin-bottom: 8px; }
-            .card-header { margin-bottom: 16px; }
-            .form-group { margin-bottom: 12px; }
-        }
-
-        .field-hint {
-            color: #6d5b95;
-            font-size: 11px;
-            margin-top: 4px;
+        @media (max-width: 550px) {
+            .card { padding: 24px 18px; }
+            .brand-name { font-size: 30px; }
+            .dynamic-text { font-size: 14px; white-space: normal; width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Form Card -->
-    <div class="card">
-        <div class="card-header">
-            <div class="icon">🎧</div>
-            <h1>حجز سماعات الثانوية العامة</h1>
-            <p>احجز سماعتك الآن واستعد للامتحانات بثقة</p>
-            <div class="badge">🔥 الكمية محدودة — احجز قبل النفاد</div>
+<div class="animated-bg">
+    <div class="bg-gradient"></div>
+    <div class="star-field"></div>
+    <div class="gold-ring ring1"></div>
+    <div class="gold-ring ring2"></div>
+    <div class="gold-ring ring3"></div>
+</div>
+
+<div class="card">
+    <div class="hero">
+        <div class="logo-animation">
+            <div class="logo-icon">🎧</div>
+            <div class="brand-name">Abo Zahra</div>
         </div>
-
-        <form id="reservationForm" novalidate>
-            <!-- الاسم -->
-            <div class="form-group">
-                <label><span class="required">*</span> الاسم الكامل</label>
-                <div class="input-wrapper">
-                    <span class="input-icon">👤</span>
-                    <input type="text" id="name" placeholder="ادخل اسمك بالكامل" required>
-                </div>
-                <div class="error-msg" id="nameError">⚠ يرجى إدخال الاسم</div>
-            </div>
-
-            <!-- رقم التليفون -->
-            <div class="form-group">
-                <label><span class="required">*</span> رقم التليفون</label>
-                <div class="input-wrapper">
-                    <span class="input-icon">📞</span>
-                    <input type="tel" id="phone" placeholder="01XXXXXXXXX" required maxlength="11" dir="ltr" style="text-align: right;">
-                </div>
-                <div class="error-msg" id="phoneError">⚠ رقم التليفون غير صحيح</div>
-                <div class="field-hint">مثال: 01012345678 (11 رقم يبدأ بـ 01)</div>
-            </div>
-
-            <!-- العنوان -->
-            <div class="form-group">
-                <label><span class="required">*</span> العنوان</label>
-                <div class="input-wrapper">
-                    <span class="input-icon">📍</span>
-                    <input type="text" id="address" placeholder="ادخل عنوانك بالتفصيل للتوصيل" required>
-                </div>
-                <div class="error-msg" id="addressError">⚠ يرجى إدخال العنوان</div>
-            </div>
-
-            <!-- نوع السماعة -->
-            <div class="form-group">
-                <label><span class="required">*</span> نوع السماعة</label>
-                <div class="input-wrapper">
-                    <span class="input-icon">🎧</span>
-                    <input type="text" id="device" placeholder="مثال: سماعة بلوتوث صغيرة، سماعة مخفية ..." required>
-                </div>
-                <div class="error-msg" id="deviceError">⚠ يرجى إدخال نوع السماعة</div>
-            </div>
-
-            <!-- استفسار -->
-            <div class="form-group">
-                <label>استفسار أو ملاحظات <span class="optional">(اختياري)</span></label>
-                <div class="input-wrapper">
-                    <span class="input-icon" style="top: 18px; transform: none;">💬</span>
-                    <textarea id="question" placeholder="اكتب أي استفسار عن السماعة أو ملاحظة خاصة بالطلب ..." rows="3"></textarea>
-                </div>
-            </div>
-
-            <!-- ميعاد التسليم -->
-            <div class="form-group">
-                <label><span class="required">*</span> ميعاد التسليم المفضل</label>
-                <div class="input-wrapper">
-                    <span class="input-icon">📅</span>
-                    <input type="date" id="deliveryDate" required>
-                </div>
-                <div class="error-msg" id="dateError">⚠ يرجى اختيار ميعاد التسليم</div>
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="btn" id="submitBtn">
-                <span class="spinner"></span>
-                <span class="btn-text">🎧 احجز سماعتك الآن</span>
-                <span class="btn-loading-text">جاري حفظ الحجز ...</span>
-            </button>
-        </form>
-
-        <div class="features">
-            <div class="feature-item">
-                <div class="f-icon">🚚</div>
-                <div class="f-text">توصيل سريع</div>
-            </div>
-            <div class="feature-item">
-                <div class="f-icon">🔒</div>
-                <div class="f-text">سرية تامة</div>
-            </div>
-            <div class="feature-item">
-                <div class="f-icon">💯</div>
-                <div class="f-text">جودة مضمونة</div>
-            </div>
+        <div class="moving-tagline">
+            <div class="dynamic-text" id="animatedText">سماعات الثانوية العامة</div>
+        </div>
+        <div class="glow-badge">
+            <i class="fas fa-infinity"></i> أداء خارق · تقنية صامتة <i class="fas fa-bolt"></i>
         </div>
     </div>
 
-    <!-- Success Modal -->
-    <div class="modal-overlay" id="successModal">
-        <div class="modal">
-            <div class="success-icon">✓</div>
-            <h2>تم حجز السماعة بنجاح! 🎉</h2>
-            <p>سيتم التواصل معك قريباً لتأكيد الحجز والتوصيل.<br>يمكنك إرسال تفاصيل الطلب عبر واتساب لتسريع الإجراءات.</p>
-            <div class="modal-buttons">
-                <a href="#" class="btn-whatsapp" id="whatsappBtn" target="_blank">
-                    💬 فتح واتساب
-                </a>
-                <button class="btn-close" id="closeModal">إغلاق</button>
-            </div>
+    <form id="reservationForm">
+        <div class="form-group">
+            <label><span style="color:#F5C542">*</span> الاسم الكامل</label>
+            <div class="input-wrapper"><span class="input-icon"><i class="fas fa-user-tie"></i></span><input type="text" id="name" placeholder="مثال: أحمد عبدالله"></div>
+            <div class="error-msg" id="nameError"></div>
         </div>
+        <div class="form-group">
+            <label><span style="color:#F5C542">*</span> رقم الجوال</label>
+            <div class="input-wrapper"><span class="input-icon"><i class="fas fa-mobile-alt"></i></span><input type="tel" id="phone" placeholder="01XXXXXXXXX" maxlength="11"></div>
+            <div class="error-msg" id="phoneError"></div>
+        </div>
+        <div class="form-group">
+            <label><span style="color:#F5C542">*</span> العنوان الكامل</label>
+            <div class="input-wrapper"><span class="input-icon"><i class="fas fa-location-dot"></i></span><input type="text" id="address" placeholder="المحافظة – المنطقة – الشارع"></div>
+            <div class="error-msg" id="addressError"></div>
+        </div>
+        <div class="form-group">
+            <label><span style="color:#F5C542">*</span> نوع السماعة</label>
+            <div class="input-wrapper"><span class="input-icon"><i class="fas fa-head-side-headphones"></i></span><input type="text" id="device" placeholder="سماعة بلوتوث نانو / ميني VIP"></div>
+            <div class="error-msg" id="deviceError"></div>
+        </div>
+        <div class="form-group">
+            <label>ملاحظات اضافية</label>
+            <div class="input-wrapper"><span class="input-icon" style="top:18px"><i class="fas fa-pen-fancy"></i></span><textarea id="question" rows="2" placeholder="أي استفسار ..."></textarea></div>
+        </div>
+        <div class="form-group">
+            <label><span style="color:#F5C542">*</span> ميعاد التسليم (خلال أسبوع كحد أقصى)</label>
+            <div class="input-wrapper"><span class="input-icon"><i class="fas fa-calendar-week"></i></span><input type="date" id="deliveryDate"></div>
+            <div class="error-msg" id="dateError"></div>
+        </div>
+        <button type="submit" class="btn-premium" id="submitBtn">
+            <span class="spinner"></span>
+            <span class="btn-text"><i class="fas fa-gem"></i> احجز الآن - ضمان الفخامة</span>
+            <span class="btn-loading-text"></span>
+        </button>
+    </form>
+
+    <div class="features">
+        <div class="feature-item"><i class="fas fa-shipping-fast"></i><span>توصيل VIP</span></div>
+        <div class="feature-item"><i class="fas fa-microphone-slash"></i><span>صامت 100%</span></div>
+        <div class="feature-item"><i class="fas fa-medal"></i><span>ضمان ذهبي</span></div>
     </div>
+</div>
 
-    <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<div class="modal-overlay" id="successModal">
+    <div class="modal-content">
+        <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+        <h2 style="color:#F5C542; margin-bottom:10px">تم الحجز بنجاح</h2>
+        <p style="color:#FFDE9E">شكراً لاختيار Abo Zahra، سنتصل بك فوراً لتأكيد التوصيل</p>
+        <a href="#" class="btn-wa" id="whatsappBtn" target="_blank"><i class="fab fa-whatsapp"></i> تواصل عبر واتساب</a>
+        <button class="btn-close-modal" id="closeModal">إغلاق</button>
+    </div>
+</div>
 
-    <script>
-        // ======== Firebase Setup ========
-        const firebaseConfig = {
-            apiKey: "AIzaSyDrhyNCKO5tzF-tiRQevk12kLM8hAkkr0w",
-            authDomain: "reservations-e411a.firebaseapp.com",
-            projectId: "reservations-e411a",
-            storageBucket: "reservations-e411a.firebasestorage.app",
-            messagingSenderId: "197134642642",
-            appId: "1:197134642642:web:a112f2cbf9dc64d0096c0b",
-            measurementId: "G-R0MVFWBG53"
-        };
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+    // Firebase Config
+    const firebaseConfig = {
+        apiKey: "AIzaSyDrhyNCKO5tzF-tiRQevk12kLM8hAkkr0w",
+        authDomain: "reservations-e411a.firebaseapp.com",
+        projectId: "reservations-e411a",
+        storageBucket: "reservations-e411a.firebasestorage.app",
+        messagingSenderId: "197134642642",
+        appId: "1:197134642642:web:a112f2cbf9dc64d0096c0b"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
 
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
+    // Date constraints: max 7 days from today
+    const todayDate = new Date();
+    const todayStr = todayDate.toISOString().split('T')[0];
+    const maxDateLimit = new Date(todayDate);
+    maxDateLimit.setDate(todayDate.getDate() + 7);
+    const maxDateStr = maxDateLimit.toISOString().split('T')[0];
+    const dateInput = document.getElementById('deliveryDate');
+    dateInput.setAttribute('min', todayStr);
+    dateInput.setAttribute('max', maxDateStr);
 
-        // ======== Set Minimum Date to Today ========
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('deliveryDate').setAttribute('min', today);
+    // Helper functions
+    function containsArabicNumbers(s) { return /[٠-٩]/.test(s); }
+    function isValidPhone(p) { return /^01[0-9]{9}$/.test(p); }
+    function showError(inputId, errId, msg) {
+        document.getElementById(inputId).classList.add('error');
+        const errDiv = document.getElementById(errId);
+        errDiv.innerHTML = '⚠ ' + msg;
+        errDiv.classList.add('show');
+    }
+    function clearError(inputId, errId) {
+        document.getElementById(inputId).classList.remove('error');
+        document.getElementById(errId).classList.remove('show');
+    }
 
-        // ======== Arabic to English Number Check ========
-        function containsArabicNumbers(str) {
-            return /[٠-٩]/.test(str);
+    // real-time validation listeners
+    ['name','phone','address','device','deliveryDate'].forEach(id => {
+        const el = document.getElementById(id);
+        if(el) el.addEventListener('input', function() {
+            this.classList.remove('error');
+            const errId = this.id + 'Error';
+            if(document.getElementById(errId)) document.getElementById(errId).classList.remove('show');
+        });
+    });
+
+    // Typing Animation (moving text)
+    const phrases = ["سماعات الثانوية العامة", "أداء خارق 2026", "تكنولوجيا صامتة فاخرة", "Abo Zahra Elite", "احجز مستقبلك الآن"];
+    let idx = 0;
+    let charIndex = 0;
+    let currentText = "";
+    let isDeleting = false;
+    const animatedSpan = document.getElementById("animatedText");
+    function typeEffect() {
+        const fullText = phrases[idx];
+        if (isDeleting) {
+            currentText = fullText.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            currentText = fullText.substring(0, charIndex + 1);
+            charIndex++;
         }
-
-        function isValidPhone(phone) {
-            return /^01[0-9]{9}$/.test(phone);
+        animatedSpan.innerText = currentText;
+        if (!isDeleting && charIndex === fullText.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 2000);
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            idx = (idx + 1) % phrases.length;
+            setTimeout(typeEffect, 400);
+        } else {
+            setTimeout(typeEffect, isDeleting ? 60 : 100);
         }
+    }
+    typeEffect();
 
-        // ======== Clear Error on Input ========
-        document.querySelectorAll('input, textarea').forEach(input => {
-            input.addEventListener('input', function() {
-                this.classList.remove('error');
-                const errorEl = document.getElementById(this.id + 'Error') || 
-                                document.getElementById(this.id.replace(/([A-Z])/g, (m) => m).replace('deliveryDate', 'date') + 'Error');
-                if (errorEl) errorEl.classList.remove('show');
+    // Form Submission
+    const form = document.getElementById('reservationForm');
+    const submitBtn = document.getElementById('submitBtn');
+    let submitting = false;
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if(submitting) return;
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const address = document.getElementById('address').value.trim();
+        const device = document.getElementById('device').value.trim();
+        const question = document.getElementById('question').value.trim();
+        const deliveryDate = document.getElementById('deliveryDate').value;
+        let valid = true;
+
+        if(!name) { showError('name','nameError','الاسم مطلوب'); valid=false; } else clearError('name','nameError');
+        if(!phone) { showError('phone','phoneError','رقم الجوال مطلوب'); valid=false; }
+        else if(containsArabicNumbers(phone)) { showError('phone','phoneError','استخدم أرقام إنجليزية'); valid=false; }
+        else if(!isValidPhone(phone)) { showError('phone','phoneError','رقم غير صحيح (يبدأ 01)'); valid=false; }
+        else clearError('phone','phoneError');
+        
+        if(!address) { showError('address','addressError','العنوان مطلوب'); valid=false; } else clearError('address','addressError');
+        if(!device) { showError('device','deviceError','نوع السماعة مطلوب'); valid=false; } else clearError('device','deviceError');
+        
+        if(!deliveryDate) { showError('deliveryDate','dateError','اختار تاريخ التسليم'); valid=false; }
+        else if(deliveryDate > maxDateStr) { showError('deliveryDate','dateError',`لا يتجاوز أسبوع (أقصى تاريخ ${maxDateStr})`); valid=false; }
+        else if(deliveryDate < todayStr) { showError('deliveryDate','dateError','لا يمكن اختيار تاريخ مضى'); valid=false; }
+        else clearError('deliveryDate','dateError');
+        
+        if(!valid) return;
+
+        submitting = true;
+        submitBtn.classList.add('loading');
+        submitBtn.disabled = true;
+        try {
+            await db.collection('reservations').add({
+                name, phone, address, device, question, delivery_date: deliveryDate,
+                created_at: firebase.firestore.FieldValue.serverTimestamp()
             });
-        });
+            const waNumber = '201282235324';
+            let waMsg = `🎧 *طلب حجز - Abo Zahra Premium*\n👤 الاسم: ${name}\n📞 الهاتف: ${phone}\n📍 العنوان: ${address}\n🎧 السماعة: ${device}\n📅 التسليم: ${deliveryDate}\n💬 ملاحظات: ${question || "لا يوجد"}`;
+            document.getElementById('whatsappBtn').href = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMsg)}`;
+            document.getElementById('successModal').classList.add('show');
+            form.reset();
+            dateInput.setAttribute('min', todayStr);
+            dateInput.setAttribute('max', maxDateStr);
+        } catch(err) { alert("حدث خطأ تقني، حاول مجدداً"); console.error(err); }
+        finally { submitting=false; submitBtn.classList.remove('loading'); submitBtn.disabled=false; }
+    });
 
-        // ======== Show Error ========
-        function showError(inputId, errorId, message) {
-            const input = document.getElementById(inputId);
-            const error = document.getElementById(errorId);
-            input.classList.add('error');
-            error.textContent = '⚠ ' + message;
-            error.classList.add('show');
-            return false;
-        }
-
-        function clearError(inputId, errorId) {
-            document.getElementById(inputId).classList.remove('error');
-            document.getElementById(errorId).classList.remove('show');
-        }
-
-        // ======== Form Submit ========
-        const form = document.getElementById('reservationForm');
-        const submitBtn = document.getElementById('submitBtn');
-        let isSubmitting = false;
-
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            if (isSubmitting) return;
-
-            // Get values
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const address = document.getElementById('address').value.trim();
-            const device = document.getElementById('device').value.trim();
-            const question = document.getElementById('question').value.trim();
-            const deliveryDate = document.getElementById('deliveryDate').value;
-
-            let isValid = true;
-
-            // Validate Name
-            if (!name) {
-                showError('name', 'nameError', 'يرجى إدخال الاسم');
-                isValid = false;
-            } else {
-                clearError('name', 'nameError');
-            }
-
-            // Validate Phone
-            if (!phone) {
-                showError('phone', 'phoneError', 'يرجى إدخال رقم التليفون');
-                isValid = false;
-            } else if (containsArabicNumbers(phone)) {
-                showError('phone', 'phoneError', 'من فضلك اكتب رقم التليفون بالأرقام الإنجليزية');
-                isValid = false;
-            } else if (!isValidPhone(phone)) {
-                showError('phone', 'phoneError', 'رقم التليفون يجب أن يكون 11 رقم ويبدأ بـ 01');
-                isValid = false;
-            } else {
-                clearError('phone', 'phoneError');
-            }
-
-            // Validate Address
-            if (!address) {
-                showError('address', 'addressError', 'يرجى إدخال العنوان');
-                isValid = false;
-            } else {
-                clearError('address', 'addressError');
-            }
-
-            // Validate Device
-            if (!device) {
-                showError('device', 'deviceError', 'يرجى إدخال نوع السماعة');
-                isValid = false;
-            } else {
-                clearError('device', 'deviceError');
-            }
-
-            // Validate Date
-            if (!deliveryDate) {
-                showError('deliveryDate', 'dateError', 'يرجى اختيار ميعاد التسليم');
-                isValid = false;
-            } else {
-                clearError('deliveryDate', 'dateError');
-            }
-
-            if (!isValid) {
-                const firstError = document.querySelector('.error');
-                if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                return;
-            }
-
-            // Start loading
-            isSubmitting = true;
-            submitBtn.classList.add('loading');
-            submitBtn.disabled = true;
-
-            try {
-                // Save to Firestore
-                await db.collection('reservations').add({
-                    name: name,
-                    phone: phone,
-                    address: address,
-                    device: device,
-                    question: question,
-                    delivery_date: deliveryDate,
-                    created_at: firebase.firestore.FieldValue.serverTimestamp()
-                });
-
-                // Build WhatsApp message
-                const waNumber = '201282235324';
-                let message = `🎧 *طلب حجز سماعة جديد*\n\n`;
-                message += `👤 *الاسم:* ${name}\n`;
-                message += `📞 *التليفون:* ${phone}\n`;
-                message += `📍 *العنوان:* ${address}\n`;
-                message += `🎧 *نوع السماعة:* ${device}\n`;
-                if (question) {
-                    message += `💬 *استفسار:* ${question}\n`;
-                }
-                message += `📅 *ميعاد التسليم:* ${deliveryDate}\n`;
-                message += `\n✅ تم إرسال الطلب بنجاح`;
-
-                const waURL = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
-                document.getElementById('whatsappBtn').href = waURL;
-
-                // Show success modal
-                document.getElementById('successModal').classList.add('show');
-
-                // Reset form
-                form.reset();
-                document.getElementById('deliveryDate').setAttribute('min', today);
-
-            } catch (error) {
-                console.error('Error:', error);
-                alert('حدث خطأ أثناء حفظ الحجز. يرجى المحاولة مرة أخرى.');
-            } finally {
-                isSubmitting = false;
-                submitBtn.classList.remove('loading');
-                submitBtn.disabled = false;
-            }
-        });
-
-        // ======== Close Modal ========
-        document.getElementById('closeModal').addEventListener('click', function() {
-            document.getElementById('successModal').classList.remove('show');
-        });
-
-        document.getElementById('successModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.classList.remove('show');
-            }
-        });
-
-        // Close with Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                document.getElementById('successModal').classList.remove('show');
-            }
-        });
-
-        // ======== Prevent Arabic Numbers in Phone Field ========
-        document.getElementById('phone').addEventListener('input', function(e) {
-            let val = this.value;
-            if (containsArabicNumbers(val)) {
-                showError('phone', 'phoneError', 'من فضلك اكتب رقم التليفون بالأرقام الإنجليزية');
-            }
-            this.value = val.replace(/[^0-9٠-٩]/g, '');
-        });
-    </script>
+    document.getElementById('closeModal').addEventListener('click',()=>document.getElementById('successModal').classList.remove('show'));
+    document.getElementById('successModal').addEventListener('click',(e)=>{if(e.target===document.getElementById('successModal')) document.getElementById('successModal').classList.remove('show');});
+    document.addEventListener('keydown',(e)=>{if(e.key==='Escape') document.getElementById('successModal').classList.remove('show');});
+    document.getElementById('phone').addEventListener('input',function(){ if(containsArabicNumbers(this.value)) showError('phone','phoneError','أرقام إنجليزية فقط'); this.value=this.value.replace(/[^0-9٠-٩]/g,'');});
+</script>
 </body>
 </html>
