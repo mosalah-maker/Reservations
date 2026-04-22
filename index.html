@@ -26,7 +26,7 @@
             overflow-x: hidden;
         }
 
-        /* ========== BACKGROUND CINEMATIC ANIMATION ========== */
+        /* Background */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -36,7 +36,6 @@
             z-index: 0;
             overflow: hidden;
         }
-
         .bg-gradient {
             position: absolute;
             width: 100%;
@@ -44,48 +43,35 @@
             background: radial-gradient(circle at 30% 40%, rgba(229, 170, 50, 0.12) 0%, #030101 90%);
             animation: breatheBg 8s ease-in-out infinite;
         }
-
         @keyframes breatheBg {
             0%, 100% { opacity: 0.7; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.02); }
         }
-
-        /* stars floating */
         .star-field {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                radial-gradient(2px 2px at 15% 30%, #F5C542, rgba(0,0,0,0)),
-                radial-gradient(3px 3px at 75% 60%, #FFD966, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 90% 20%, #F5C542, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 45% 85%, #E5B83C, rgba(0,0,0,0)),
-                radial-gradient(4px 4px at 10% 70%, #FFF2C8, rgba(0,0,0,0));
+            background-image: radial-gradient(2px 2px at 15% 30%, #F5C542, rgba(0,0,0,0)), radial-gradient(3px 3px at 75% 60%, #FFD966, rgba(0,0,0,0)), radial-gradient(1px 1px at 90% 20%, #F5C542, rgba(0,0,0,0)), radial-gradient(2px 2px at 45% 85%, #E5B83C, rgba(0,0,0,0)), radial-gradient(4px 4px at 10% 70%, #FFF2C8, rgba(0,0,0,0));
             background-repeat: no-repeat;
             background-size: 200px 200px;
             animation: starMove 40s linear infinite;
             opacity: 0.5;
         }
-
         @keyframes starMove {
             0% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
             100% { background-position: 100% 100%, 80% 70%, 120% 50%, 60% 90%, 40% 110%; }
         }
-
-        /* floating golden rings */
         .gold-ring {
             position: absolute;
             border: 2px solid rgba(229, 184, 60, 0.2);
             border-radius: 50%;
             animation: floatRing 20s infinite linear;
         }
-
         .ring1 { width: 300px; height: 300px; top: -100px; right: -100px; border-width: 1px; animation-duration: 25s; }
         .ring2 { width: 500px; height: 500px; bottom: -150px; left: -150px; border-width: 2px; animation-duration: 35s; animation-direction: reverse; }
         .ring3 { width: 200px; height: 200px; top: 40%; left: 10%; border-width: 1px; border-color: rgba(229,184,60,0.1); animation-duration: 18s; }
-
         @keyframes floatRing {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -103,21 +89,13 @@
             border-radius: 56px;
             padding: 30px 36px 40px;
             box-shadow: 0 40px 70px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(229, 184, 60, 0.15) inset;
-            animation: cardGlow 3s infinite alternate;
         }
 
-        @keyframes cardGlow {
-            0% { box-shadow: 0 40px 70px rgba(0,0,0,0.5), 0 0 0 1px rgba(229,184,60,0.1) inset; }
-            100% { box-shadow: 0 45px 80px rgba(0,0,0,0.7), 0 0 0 2px rgba(229,184,60,0.25) inset; }
-        }
-
-        /* ========== HERO SECTION with MOVING TEXT ========== */
+        /* Hero */
         .hero {
             text-align: center;
             margin-bottom: 35px;
-            position: relative;
         }
-
         .logo-animation {
             display: flex;
             justify-content: center;
@@ -125,14 +103,7 @@
             align-items: center;
             flex-wrap: wrap;
             margin-bottom: 15px;
-            animation: slideInLogo 0.8s ease-out;
         }
-
-        @keyframes slideInLogo {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         .logo-icon {
             width: 85px;
             height: 85px;
@@ -144,15 +115,7 @@
             font-size: 44px;
             border: 1px solid #F5C542;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 0 2px rgba(245,197,66,0.2) inset;
-            animation: pulseIcon 2.5s infinite;
         }
-
-        @keyframes pulseIcon {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245,197,66,0.4); }
-            70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(245,197,66,0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245,197,66,0); }
-        }
-
         .brand-name {
             font-size: 42px;
             font-weight: 900;
@@ -161,22 +124,7 @@
             background-clip: text;
             color: transparent;
             letter-spacing: 3px;
-            text-shadow: 0 0 15px rgba(245,197,66,0.3);
-            animation: textShine 3s infinite;
         }
-
-        @keyframes textShine {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Animated Typing Text */
-        .moving-tagline {
-            margin-top: 18px;
-            min-height: 70px;
-        }
-
         .dynamic-text {
             font-size: 18px;
             font-weight: 700;
@@ -188,15 +136,11 @@
             backdrop-filter: blur(4px);
             border-right: 3px solid #F5C542;
             animation: blinkCursor 0.75s step-end infinite;
-            white-space: nowrap;
-            overflow: hidden;
         }
-
         @keyframes blinkCursor {
             from, to { border-color: transparent; }
             50% { border-color: #F5C542; }
         }
-
         .glow-badge {
             display: inline-flex;
             align-items: center;
@@ -209,18 +153,12 @@
             font-size: 13px;
             font-weight: 700;
             color: #FFDE9E;
-            animation: borderPulse 2s infinite;
         }
 
-        @keyframes borderPulse {
-            0% { border-color: rgba(229,184,60,0.3); box-shadow: 0 0 0px rgba(245,197,66,0); }
-            50% { border-color: rgba(229,184,60,0.9); box-shadow: 0 0 12px rgba(245,197,66,0.3); }
-            100% { border-color: rgba(229,184,60,0.3); box-shadow: 0 0 0px rgba(245,197,66,0); }
-        }
-
-        /* Form fields */
+        /* Form */
         .form-group {
             margin-bottom: 22px;
+            text-align: right;
         }
         .form-group label {
             display: block;
@@ -228,6 +166,7 @@
             font-size: 14px;
             font-weight: 700;
             margin-bottom: 8px;
+            text-align: right;
         }
         .input-wrapper {
             position: relative;
@@ -251,11 +190,13 @@
             font-family: 'Cairo', sans-serif;
             font-size: 15px;
             transition: all 0.3s;
+            text-align: right;
         }
         input:focus, textarea:focus {
             border-color: #F5C542;
             box-shadow: 0 0 0 4px rgba(245,197,66,0.15);
             background: #0a0602;
+            outline: none;
         }
         input.error, textarea.error {
             border-color: #ff7b2c;
@@ -265,10 +206,11 @@
             font-size: 12px;
             margin-top: 5px;
             display: none;
+            text-align: right;
         }
-        .error-msg.show { display: flex; gap: 5px; align-items: center; }
+        .error-msg.show { display: block; }
 
-        /* Premium Button */
+        /* Button */
         .btn-premium {
             width: 100%;
             padding: 18px;
@@ -285,13 +227,10 @@
             margin-top: 28px;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
         }
         .btn-premium:hover {
             transform: scale(1.02);
             background: linear-gradient(95deg, #F5C542, #D4AF37);
-            letter-spacing: 1px;
-            box-shadow: 0 10px 25px rgba(229,184,60,0.3);
         }
         .spinner {
             width: 22px;
@@ -304,6 +243,7 @@
         }
         .btn-premium.loading .spinner { display: block; }
         .btn-premium.loading .btn-text { display: none; }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         /* Features */
         .features {
@@ -319,12 +259,117 @@
             background: rgba(0,0,0,0.3);
             border-radius: 40px;
             padding: 10px 4px;
-            transition: 0.2s;
         }
         .feature-item i { font-size: 24px; color: #F5C542; margin-bottom: 5px; display: block; }
         .feature-item span { font-size: 12px; color: #FFDE9E; font-weight: 600; }
 
-        /* Modal Animation */
+        /* Offer Modal */
+        .offer-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(16px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .offer-card {
+            background: linear-gradient(145deg, #0f0c07, #060402);
+            border: 2px solid #F5C542;
+            border-radius: 56px;
+            max-width: 550px;
+            width: 90%;
+            padding: 32px 28px;
+            text-align: center;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.7);
+        }
+        .offer-header {
+            font-size: 28px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FFD966, #F5C542, #E5A812);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .limited-badge {
+            background: rgba(229,184,60,0.2);
+            border-radius: 60px;
+            padding: 5px 15px;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #FFDE9E;
+            margin-bottom: 20px;
+            border: 1px solid #F5C542;
+        }
+        .product-list {
+            text-align: right;
+            margin: 20px 0;
+            background: rgba(0,0,0,0.4);
+            border-radius: 40px;
+            padding: 20px;
+        }
+        .product-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(229,184,60,0.3);
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFEFCF;
+        }
+        .product-item:last-child { border: none; }
+        .price-old {
+            text-decoration: line-through;
+            color: #a07a2c;
+            margin-left: 8px;
+            font-size: 14px;
+        }
+        .price-new {
+            color: #F5C542;
+            font-weight: 800;
+            font-size: 18px;
+        }
+        .gift-highlight {
+            background: rgba(245,197,66,0.15);
+            padding: 12px;
+            border-radius: 50px;
+            margin: 15px 0;
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFDE9E;
+        }
+        .offer-footer {
+            font-size: 13px;
+            color: #E5B83C;
+            margin-top: 15px;
+            border-top: 1px solid rgba(229,184,60,0.3);
+            padding-top: 15px;
+        }
+        .btn-close-offer {
+            background: linear-gradient(95deg, #F5C542, #D4AF37);
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 18px;
+            color: #1f1909;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        /* Success Modal */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -336,10 +381,9 @@
             display: none;
             align-items: center;
             justify-content: center;
-            z-index: 200;
+            z-index: 1100;
         }
-        .modal-overlay.show { display: flex; animation: fadeModal 0.3s; }
-        @keyframes fadeModal { from { opacity: 0; } to { opacity: 1; } }
+        .modal-overlay.show { display: flex; }
         .modal-content {
             background: #100c06;
             border: 1px solid #F5C542;
@@ -347,12 +391,7 @@
             padding: 40px 28px;
             text-align: center;
             max-width: 400px;
-            animation: bounceModal 0.5s;
-        }
-        @keyframes bounceModal {
-            0% { transform: scale(0.9) translateY(30px); opacity: 0; }
-            80% { transform: scale(1.02); }
-            100% { transform: scale(1) translateY(0); opacity: 1; }
+            width: 90%;
         }
         .success-icon {
             width: 80px;
@@ -374,6 +413,7 @@
             border-radius: 40px;
             text-decoration: none;
             font-weight: 800;
+            text-align: center;
         }
         .btn-wa { background: #25D366; color: white; }
         .btn-close-modal { background: rgba(245,197,66,0.15); color: #F5C542; border: 1px solid #F5C542; cursor: pointer; }
@@ -381,7 +421,10 @@
         @media (max-width: 550px) {
             .card { padding: 24px 18px; }
             .brand-name { font-size: 30px; }
-            .dynamic-text { font-size: 14px; white-space: normal; width: 100%; }
+            .dynamic-text { font-size: 14px; }
+            .offer-header { font-size: 22px; }
+            .product-item { font-size: 13px; flex-wrap: wrap; gap: 8px; justify-content: center; }
+            .product-item span:first-child { width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -393,6 +436,39 @@
     <div class="gold-ring ring1"></div>
     <div class="gold-ring ring2"></div>
     <div class="gold-ring ring3"></div>
+</div>
+
+<!-- عرض منبثق أول ما العميل يفتح الموقع -->
+<div id="offerModal" class="offer-modal">
+    <div class="offer-card">
+        <div class="offer-header">
+            <i class="fas fa-fire"></i> 
+            <span>عرض لفترة محدودة 🔥</span>
+            <i class="fas fa-stopwatch"></i>
+        </div>
+        <div class="limited-badge">
+            <i class="fas fa-clock"></i> العرض ساري حتى نفاذ الكمية
+        </div>
+        <p style="color:#FFDE9E; margin-bottom:8px; font-weight:600;">✨ دي الأجهزة المتوفرة 👇<br>كلها مخفية بلوتوث + سيريال متغير ✅</p>
+        
+        <div class="product-list">
+            <div class="product-item"><span>💳 فيزا Type-C</span><span><span class="price-old">2800</span> ➜ <span class="price-new">2500</span></span></div>
+            <div class="product-item"><span>💳 فيزا معدلة</span><span><span class="price-old">3300</span> ➜ <span class="price-new">3000</span></span></div>
+            <div class="product-item"><span>🎧 ميني معدلة 🔥</span><span><span class="price-old">3500</span> ➜ <span class="price-new">3150</span></span></div>
+            <div class="product-item"><span>🧮 سماعة آلة حاسبة</span><span><span class="price-old">4000</span> ➜ <span class="price-new">3600</span></span></div>
+            <div class="product-item"><span>👕 تيشيرت / بوكسر / توكة / برا</span><span><span class="price-old">4000</span> ➜ <span class="price-new">3600</span></span></div>
+        </div>
+
+        <div class="gift-highlight">
+            <i class="fas fa-gift"></i> 🎁 مع كل سماعة: 2 حجر سوني هدية ❤️
+        </div>
+        <div class="offer-footer">
+            ⏳ العرض لفترة محدودة أو حتى نفاذ الكمية
+        </div>
+        <button class="btn-close-offer" id="closeOfferBtn">
+            <i class="fas fa-cart-shopping"></i> أطلب دلوقتي واستفد بالعرض
+        </button>
+    </div>
 </div>
 
 <div class="card">
@@ -411,22 +487,22 @@
 
     <form id="reservationForm">
         <div class="form-group">
-            <label><span style="color:#F5C542">*</span> الاسم الكامل</label>
-            <div class="input-wrapper"><span class="input-icon"><i class="fas fa-user-tie"></i></span><input type="text" id="name" placeholder="مثال: أحمد عبدالله"></div>
+            <label>الاسم الكامل <span style="color:#F5C542">*</span></label>
+            <div class="input-wrapper"><span class="input-icon"><i class="fas fa-user-tie"></i></span><input type="text" id="name" placeholder="أحمد عبدالله"></div>
             <div class="error-msg" id="nameError"></div>
         </div>
         <div class="form-group">
-            <label><span style="color:#F5C542">*</span> رقم الجوال</label>
+            <label>رقم الجوال <span style="color:#F5C542">*</span></label>
             <div class="input-wrapper"><span class="input-icon"><i class="fas fa-mobile-alt"></i></span><input type="tel" id="phone" placeholder="01XXXXXXXXX" maxlength="11"></div>
             <div class="error-msg" id="phoneError"></div>
         </div>
         <div class="form-group">
-            <label><span style="color:#F5C542">*</span> العنوان الكامل</label>
+            <label>العنوان الكامل <span style="color:#F5C542">*</span></label>
             <div class="input-wrapper"><span class="input-icon"><i class="fas fa-location-dot"></i></span><input type="text" id="address" placeholder="المحافظة – المنطقة – الشارع"></div>
             <div class="error-msg" id="addressError"></div>
         </div>
         <div class="form-group">
-            <label><span style="color:#F5C542">*</span> نوع السماعة</label>
+            <label>نوع السماعة <span style="color:#F5C542">*</span></label>
             <div class="input-wrapper"><span class="input-icon"><i class="fas fa-head-side-headphones"></i></span><input type="text" id="device" placeholder="سماعة بلوتوث نانو / ميني VIP"></div>
             <div class="error-msg" id="deviceError"></div>
         </div>
@@ -435,14 +511,13 @@
             <div class="input-wrapper"><span class="input-icon" style="top:18px"><i class="fas fa-pen-fancy"></i></span><textarea id="question" rows="2" placeholder="أي استفسار ..."></textarea></div>
         </div>
         <div class="form-group">
-            <label><span style="color:#F5C542">*</span> ميعاد التسليم (خلال أسبوع كحد أقصى)</label>
+            <label>ميعاد التسليم (خلال أسبوع كحد أقصى) <span style="color:#F5C542">*</span></label>
             <div class="input-wrapper"><span class="input-icon"><i class="fas fa-calendar-week"></i></span><input type="date" id="deliveryDate"></div>
             <div class="error-msg" id="dateError"></div>
         </div>
         <button type="submit" class="btn-premium" id="submitBtn">
             <span class="spinner"></span>
             <span class="btn-text"><i class="fas fa-gem"></i> احجز الآن - ضمان الفخامة</span>
-            <span class="btn-loading-text"></span>
         </button>
     </form>
 
@@ -466,7 +541,6 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
-    // Firebase Config
     const firebaseConfig = {
         apiKey: "AIzaSyDrhyNCKO5tzF-tiRQevk12kLM8hAkkr0w",
         authDomain: "reservations-e411a.firebaseapp.com",
@@ -478,46 +552,30 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-    // Date constraints: max 7 days from today
-    const todayDate = new Date();
-    const todayStr = todayDate.toISOString().split('T')[0];
-    const maxDateLimit = new Date(todayDate);
-    maxDateLimit.setDate(todayDate.getDate() + 7);
-    const maxDateStr = maxDateLimit.toISOString().split('T')[0];
+    // Date limits
+    const today = new Date();
+    const todayStr = today.toISOString().split('T')[0];
+    const maxDate = new Date(today);
+    maxDate.setDate(today.getDate() + 7);
+    const maxDateStr = maxDate.toISOString().split('T')[0];
     const dateInput = document.getElementById('deliveryDate');
     dateInput.setAttribute('min', todayStr);
     dateInput.setAttribute('max', maxDateStr);
 
-    // Helper functions
-    function containsArabicNumbers(s) { return /[٠-٩]/.test(s); }
     function isValidPhone(p) { return /^01[0-9]{9}$/.test(p); }
     function showError(inputId, errId, msg) {
         document.getElementById(inputId).classList.add('error');
-        const errDiv = document.getElementById(errId);
-        errDiv.innerHTML = '⚠ ' + msg;
-        errDiv.classList.add('show');
+        document.getElementById(errId).innerHTML = '⚠ ' + msg;
+        document.getElementById(errId).classList.add('show');
     }
     function clearError(inputId, errId) {
         document.getElementById(inputId).classList.remove('error');
         document.getElementById(errId).classList.remove('show');
     }
 
-    // real-time validation listeners
-    ['name','phone','address','device','deliveryDate'].forEach(id => {
-        const el = document.getElementById(id);
-        if(el) el.addEventListener('input', function() {
-            this.classList.remove('error');
-            const errId = this.id + 'Error';
-            if(document.getElementById(errId)) document.getElementById(errId).classList.remove('show');
-        });
-    });
-
-    // Typing Animation (moving text)
+    // Typing animation
     const phrases = ["سماعات الثانوية العامة", "أداء خارق 2026", "تكنولوجيا صامتة فاخرة", "Abo Zahra Elite", "احجز مستقبلك الآن"];
-    let idx = 0;
-    let charIndex = 0;
-    let currentText = "";
-    let isDeleting = false;
+    let idx = 0, charIndex = 0, currentText = "", isDeleting = false;
     const animatedSpan = document.getElementById("animatedText");
     function typeEffect() {
         const fullText = phrases[idx];
@@ -542,7 +600,7 @@
     }
     typeEffect();
 
-    // Form Submission
+    // Form submit
     const form = document.getElementById('reservationForm');
     const submitBtn = document.getElementById('submitBtn');
     let submitting = false;
@@ -550,6 +608,7 @@
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         if(submitting) return;
+        
         const name = document.getElementById('name').value.trim();
         const phone = document.getElementById('phone').value.trim();
         const address = document.getElementById('address').value.trim();
@@ -560,13 +619,10 @@
 
         if(!name) { showError('name','nameError','الاسم مطلوب'); valid=false; } else clearError('name','nameError');
         if(!phone) { showError('phone','phoneError','رقم الجوال مطلوب'); valid=false; }
-        else if(containsArabicNumbers(phone)) { showError('phone','phoneError','استخدم أرقام إنجليزية'); valid=false; }
         else if(!isValidPhone(phone)) { showError('phone','phoneError','رقم غير صحيح (يبدأ 01)'); valid=false; }
         else clearError('phone','phoneError');
-        
         if(!address) { showError('address','addressError','العنوان مطلوب'); valid=false; } else clearError('address','addressError');
         if(!device) { showError('device','deviceError','نوع السماعة مطلوب'); valid=false; } else clearError('device','deviceError');
-        
         if(!deliveryDate) { showError('deliveryDate','dateError','اختار تاريخ التسليم'); valid=false; }
         else if(deliveryDate > maxDateStr) { showError('deliveryDate','dateError',`لا يتجاوز أسبوع (أقصى تاريخ ${maxDateStr})`); valid=false; }
         else if(deliveryDate < todayStr) { showError('deliveryDate','dateError','لا يمكن اختيار تاريخ مضى'); valid=false; }
@@ -583,20 +639,21 @@
                 created_at: firebase.firestore.FieldValue.serverTimestamp()
             });
             const waNumber = '201282235324';
-            let waMsg = `🎧 *طلب حجز - Abo Zahra Premium*\n👤 الاسم: ${name}\n📞 الهاتف: ${phone}\n📍 العنوان: ${address}\n🎧 السماعة: ${device}\n📅 التسليم: ${deliveryDate}\n💬 ملاحظات: ${question || "لا يوجد"}`;
+            let waMsg = `🎧 طلب حجز - Abo Zahra Premium\nالاسم: ${name}\nالهاتف: ${phone}\nالعنوان: ${address}\nالسماعة: ${device}\nالتسليم: ${deliveryDate}\nملاحظات: ${question || "لا يوجد"}`;
             document.getElementById('whatsappBtn').href = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMsg)}`;
             document.getElementById('successModal').classList.add('show');
             form.reset();
-            dateInput.setAttribute('min', todayStr);
-            dateInput.setAttribute('max', maxDateStr);
         } catch(err) { alert("حدث خطأ تقني، حاول مجدداً"); console.error(err); }
         finally { submitting=false; submitBtn.classList.remove('loading'); submitBtn.disabled=false; }
     });
 
     document.getElementById('closeModal').addEventListener('click',()=>document.getElementById('successModal').classList.remove('show'));
+    document.getElementById('closeOfferBtn').addEventListener('click', () => {
+        document.getElementById('offerModal').style.display = 'none';
+    });
+    // Close modal when clicking outside
     document.getElementById('successModal').addEventListener('click',(e)=>{if(e.target===document.getElementById('successModal')) document.getElementById('successModal').classList.remove('show');});
-    document.addEventListener('keydown',(e)=>{if(e.key==='Escape') document.getElementById('successModal').classList.remove('show');});
-    document.getElementById('phone').addEventListener('input',function(){ if(containsArabicNumbers(this.value)) showError('phone','phoneError','أرقام إنجليزية فقط'); this.value=this.value.replace(/[^0-9٠-٩]/g,'');});
+    document.getElementById('offerModal').addEventListener('click', (e) => { if(e.target === document.getElementById('offerModal')) document.getElementById('offerModal').style.display = 'none'; });
 </script>
 </body>
 </html>
