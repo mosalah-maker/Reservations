@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>أبو زهرة | الحجز السينمائي لسماعات الثانوية العامة</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23F5C542'>🎧</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -21,12 +21,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 16px;
             position: relative;
             overflow-x: hidden;
         }
+        /* منع تمرير الصفحة الخلفية عند فتح النافذة */
+        body.modal-open {
+            overflow: hidden;
+        }
 
-        /* Background */
+        /* ========== BACKGROUND ========== */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -77,7 +81,7 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Main Card */
+        /* ========== MAIN CARD - RESPONSIVE ========== */
         .card {
             position: relative;
             z-index: 20;
@@ -86,52 +90,52 @@
             background: rgba(8, 5, 2, 0.75);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(229, 184, 60, 0.3);
-            border-radius: 56px;
-            padding: 30px 36px 40px;
+            border-radius: 48px;
+            padding: 28px 32px 36px;
             box-shadow: 0 40px 70px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(229, 184, 60, 0.15) inset;
         }
 
-        /* Hero */
+        /* Hero Section */
         .hero {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
         .logo-animation {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             align-items: center;
             flex-wrap: wrap;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         .logo-icon {
-            width: 85px;
-            height: 85px;
+            width: 70px;
+            height: 70px;
             background: linear-gradient(145deg, #2a2418, #0e0b06);
-            border-radius: 35px;
+            border-radius: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 44px;
+            font-size: 36px;
             border: 1px solid #F5C542;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 0 2px rgba(245,197,66,0.2) inset;
         }
         .brand-name {
-            font-size: 42px;
+            font-size: 34px;
             font-weight: 900;
             background: linear-gradient(135deg, #F5C542, #FFE4A0, #D4AF37);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
         .dynamic-text {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             color: #F5C542;
             display: inline-block;
             background: rgba(0,0,0,0.5);
-            padding: 6px 20px;
+            padding: 5px 16px;
             border-radius: 50px;
             backdrop-filter: blur(4px);
             border-right: 3px solid #F5C542;
@@ -144,28 +148,28 @@
         .glow-badge {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             background: rgba(229,184,60,0.12);
             border: 1px solid rgba(229,184,60,0.5);
             border-radius: 60px;
-            padding: 6px 18px;
-            margin-top: 15px;
-            font-size: 13px;
+            padding: 5px 14px;
+            margin-top: 12px;
+            font-size: 12px;
             font-weight: 700;
             color: #FFDE9E;
         }
 
         /* Form */
         .form-group {
-            margin-bottom: 22px;
+            margin-bottom: 18px;
             text-align: right;
         }
         .form-group label {
             display: block;
             color: #FFDE9E;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-align: right;
         }
         .input-wrapper {
@@ -173,22 +177,22 @@
         }
         .input-wrapper .input-icon {
             position: absolute;
-            right: 18px;
+            right: 16px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 18px;
+            font-size: 16px;
             color: #F5C542;
             z-index: 2;
         }
         input, textarea {
             width: 100%;
-            padding: 15px 50px 15px 20px;
+            padding: 13px 45px 13px 16px;
             background: rgba(0, 0, 0, 0.6);
             border: 1.5px solid rgba(229, 184, 60, 0.3);
             border-radius: 40px;
             color: #FFF2DF;
             font-family: 'Cairo', sans-serif;
-            font-size: 15px;
+            font-size: 14px;
             transition: all 0.3s;
             text-align: right;
         }
@@ -203,7 +207,7 @@
         }
         .error-msg {
             color: #ffb347;
-            font-size: 12px;
+            font-size: 11px;
             margin-top: 5px;
             display: none;
             text-align: right;
@@ -213,18 +217,18 @@
         /* Button */
         .btn-premium {
             width: 100%;
-            padding: 18px;
+            padding: 15px;
             background: linear-gradient(95deg, #E5B83C, #B8860B);
             border: none;
             border-radius: 50px;
             color: #080501;
             font-weight: 900;
-            font-size: 18px;
+            font-size: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            margin-top: 28px;
+            gap: 10px;
+            margin-top: 24px;
             cursor: pointer;
             transition: all 0.3s;
         }
@@ -233,8 +237,8 @@
             background: linear-gradient(95deg, #F5C542, #D4AF37);
         }
         .spinner {
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
             border: 3px solid rgba(0,0,0,0.2);
             border-top-color: black;
             border-radius: 50%;
@@ -249,21 +253,21 @@
         .features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-top: 30px;
-            padding-top: 20px;
+            gap: 10px;
+            margin-top: 25px;
+            padding-top: 18px;
             border-top: 1px dashed rgba(229,184,60,0.3);
         }
         .feature-item {
             text-align: center;
             background: rgba(0,0,0,0.3);
-            border-radius: 40px;
-            padding: 10px 4px;
+            border-radius: 35px;
+            padding: 8px 4px;
         }
-        .feature-item i { font-size: 24px; color: #F5C542; margin-bottom: 5px; display: block; }
-        .feature-item span { font-size: 12px; color: #FFDE9E; font-weight: 600; }
+        .feature-item i { font-size: 22px; color: #F5C542; margin-bottom: 4px; display: block; }
+        .feature-item span { font-size: 11px; color: #FFDE9E; font-weight: 600; }
 
-        /* Offer Modal */
+        /* ========== OFFER MODAL - محسّن للهواتف وقابل للتمرير ========== */
         .offer-modal {
             position: fixed;
             top: 0;
@@ -276,85 +280,129 @@
             align-items: center;
             justify-content: center;
             z-index: 1000;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .offer-modal.show {
+            opacity: 1;
+            visibility: visible;
         }
         .offer-card {
             background: linear-gradient(145deg, #0f0c07, #060402);
             border: 2px solid #F5C542;
-            border-radius: 56px;
-            max-width: 550px;
-            width: 90%;
-            padding: 32px 28px;
+            border-radius: 48px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 24px 22px;
             text-align: center;
             box-shadow: 0 30px 50px rgba(0,0,0,0.7);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .offer-modal.show .offer-card {
+            transform: scale(1);
+        }
+        /* تخصيص شريط التمرير داخل النافذة */
+        .offer-card::-webkit-scrollbar {
+            width: 4px;
+        }
+        .offer-card::-webkit-scrollbar-track {
+            background: #1a1408;
+            border-radius: 10px;
+        }
+        .offer-card::-webkit-scrollbar-thumb {
+            background: #F5C542;
+            border-radius: 10px;
         }
         .offer-header {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 900;
             background: linear-gradient(135deg, #FFD966, #F5C542, #E5A812);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
+            flex-wrap: wrap;
         }
+        .offer-header i { font-size: 28px; background: none; -webkit-background-clip: unset; }
         .limited-badge {
             background: rgba(229,184,60,0.2);
             border-radius: 60px;
-            padding: 5px 15px;
+            padding: 4px 12px;
             display: inline-block;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 700;
             color: #FFDE9E;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             border: 1px solid #F5C542;
         }
         .product-list {
             text-align: right;
-            margin: 20px 0;
+            margin: 16px 0;
             background: rgba(0,0,0,0.4);
-            border-radius: 40px;
-            padding: 20px;
+            border-radius: 32px;
+            padding: 16px;
         }
         .product-item {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            padding: 8px 0;
+            align-items: center;
+            padding: 10px 0;
             border-bottom: 1px dashed rgba(229,184,60,0.3);
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
             color: #FFEFCF;
+            flex-wrap: wrap;
+            gap: 8px;
         }
         .product-item:last-child { border: none; }
+        .product-name {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex: 2;
+            min-width: 140px;
+        }
+        .product-price {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
         .price-old {
             text-decoration: line-through;
             color: #a07a2c;
-            margin-left: 8px;
-            font-size: 14px;
+            font-size: 13px;
         }
         .price-new {
             color: #F5C542;
             font-weight: 800;
-            font-size: 18px;
+            font-size: 16px;
         }
         .gift-highlight {
             background: rgba(245,197,66,0.15);
             padding: 12px;
-            border-radius: 50px;
-            margin: 15px 0;
-            font-size: 18px;
+            border-radius: 40px;
+            margin: 12px 0;
+            font-size: 16px;
             font-weight: 700;
             color: #FFDE9E;
         }
         .offer-footer {
-            font-size: 13px;
+            font-size: 12px;
             color: #E5B83C;
-            margin-top: 15px;
+            margin-top: 12px;
             border-top: 1px solid rgba(229,184,60,0.3);
-            padding-top: 15px;
+            padding-top: 12px;
         }
         .btn-close-offer {
             background: linear-gradient(95deg, #F5C542, #D4AF37);
@@ -363,13 +411,17 @@
             border: none;
             border-radius: 50px;
             font-weight: 900;
-            font-size: 18px;
+            font-size: 16px;
             color: #1f1909;
-            margin-top: 20px;
+            margin-top: 16px;
             cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-close-offer:active {
+            transform: scale(0.98);
         }
 
-        /* Success Modal */
+        /* ========== SUCCESS MODAL ========== */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -382,49 +434,75 @@
             align-items: center;
             justify-content: center;
             z-index: 1100;
+            padding: 16px;
         }
         .modal-overlay.show { display: flex; }
         .modal-content {
             background: #100c06;
             border: 1px solid #F5C542;
-            border-radius: 48px;
-            padding: 40px 28px;
+            border-radius: 40px;
+            padding: 32px 24px;
             text-align: center;
-            max-width: 400px;
-            width: 90%;
+            max-width: 380px;
+            width: 100%;
         }
         .success-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: #F5C542;
             border-radius: 50%;
-            margin: 0 auto 20px;
+            margin: 0 auto 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 45px;
+            font-size: 38px;
             color: #1a1306;
         }
         .btn-wa, .btn-close-modal {
             display: block;
             width: 100%;
             padding: 12px;
-            margin-top: 12px;
+            margin-top: 10px;
             border-radius: 40px;
             text-decoration: none;
             font-weight: 800;
             text-align: center;
+            font-size: 14px;
         }
         .btn-wa { background: #25D366; color: white; }
         .btn-close-modal { background: rgba(245,197,66,0.15); color: #F5C542; border: 1px solid #F5C542; cursor: pointer; }
 
-        @media (max-width: 550px) {
-            .card { padding: 24px 18px; }
-            .brand-name { font-size: 30px; }
-            .dynamic-text { font-size: 14px; }
-            .offer-header { font-size: 22px; }
-            .product-item { font-size: 13px; flex-wrap: wrap; gap: 8px; justify-content: center; }
-            .product-item span:first-child { width: 100%; text-align: center; }
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 600px) {
+            body { padding: 12px; }
+            .card { padding: 20px 18px 28px; border-radius: 36px; }
+            .logo-icon { width: 55px; height: 55px; font-size: 28px; border-radius: 24px; }
+            .brand-name { font-size: 26px; }
+            .dynamic-text { font-size: 13px; padding: 4px 12px; }
+            .glow-badge { font-size: 10px; padding: 4px 10px; }
+            .form-group { margin-bottom: 14px; }
+            input, textarea { padding: 11px 40px 11px 14px; font-size: 13px; }
+            .btn-premium { padding: 13px; font-size: 15px; }
+            
+            /* تحسينات النافذة المنبثقة للهواتف */
+            .offer-modal { padding: 12px; }
+            .offer-card { padding: 18px 16px; border-radius: 32px; max-height: 85vh; }
+            .offer-header { font-size: 20px; }
+            .offer-header i { font-size: 24px; }
+            .product-list { padding: 12px; }
+            .product-item { flex-direction: column; align-items: stretch; text-align: center; gap: 6px; }
+            .product-name { justify-content: center; }
+            .product-price { justify-content: center; }
+            .gift-highlight { font-size: 14px; padding: 10px; }
+            .btn-close-offer { padding: 12px; font-size: 15px; }
+        }
+
+        @media (max-width: 380px) {
+            .card { padding: 16px 14px 24px; }
+            .brand-name { font-size: 22px; }
+            .offer-card { padding: 14px 12px; }
+            .offer-header { font-size: 18px; }
+            .product-name { font-size: 13px; }
         }
     </style>
 </head>
@@ -438,7 +516,7 @@
     <div class="gold-ring ring3"></div>
 </div>
 
-<!-- عرض منبثق أول ما العميل يفتح الموقع -->
+<!-- عرض منبثق - يظهر أول ما العميل يفتح الموقع -->
 <div id="offerModal" class="offer-modal">
     <div class="offer-card">
         <div class="offer-header">
@@ -449,14 +527,29 @@
         <div class="limited-badge">
             <i class="fas fa-clock"></i> العرض ساري حتى نفاذ الكمية
         </div>
-        <p style="color:#FFDE9E; margin-bottom:8px; font-weight:600;">✨ دي الأجهزة المتوفرة 👇<br>كلها مخفية بلوتوث + سيريال متغير ✅</p>
+        <p style="color:#FFDE9E; margin-bottom:6px; font-weight:600; font-size:14px;">✨ دي الأجهزة المتوفرة 👇<br>كلها مخفية بلوتوث + سيريال متغير ✅</p>
         
         <div class="product-list">
-            <div class="product-item"><span>💳 فيزا Type-C</span><span><span class="price-old">2800</span> ➜ <span class="price-new">2500</span></span></div>
-            <div class="product-item"><span>💳 فيزا معدلة</span><span><span class="price-old">3300</span> ➜ <span class="price-new">3000</span></span></div>
-            <div class="product-item"><span>🎧 ميني معدلة 🔥</span><span><span class="price-old">3500</span> ➜ <span class="price-new">3150</span></span></div>
-            <div class="product-item"><span>🧮 سماعة آلة حاسبة</span><span><span class="price-old">4000</span> ➜ <span class="price-new">3600</span></span></div>
-            <div class="product-item"><span>👕 تيشيرت / بوكسر / توكة / برا</span><span><span class="price-old">4000</span> ➜ <span class="price-new">3600</span></span></div>
+            <div class="product-item">
+                <span class="product-name">💳 فيزا Type-C</span>
+                <span class="product-price"><span class="price-old">2800</span> ➜ <span class="price-new">2500</span></span>
+            </div>
+            <div class="product-item">
+                <span class="product-name">💳 فيزا معدلة</span>
+                <span class="product-price"><span class="price-old">3300</span> ➜ <span class="price-new">3000</span></span>
+            </div>
+            <div class="product-item">
+                <span class="product-name">🎧 ميني معدلة 🔥</span>
+                <span class="product-price"><span class="price-old">3500</span> ➜ <span class="price-new">3150</span></span>
+            </div>
+            <div class="product-item">
+                <span class="product-name">🧮 سماعة آلة حاسبة</span>
+                <span class="product-price"><span class="price-old">4000</span> ➜ <span class="price-new">3600</span></span>
+            </div>
+            <div class="product-item">
+                <span class="product-name">👕 تيشيرت / بوكسر / توكة / برا</span>
+                <span class="product-price"><span class="price-old">4000</span> ➜ <span class="price-new">3600</span></span>
+            </div>
         </div>
 
         <div class="gift-highlight">
@@ -508,7 +601,7 @@
         </div>
         <div class="form-group">
             <label>ملاحظات اضافية</label>
-            <div class="input-wrapper"><span class="input-icon" style="top:18px"><i class="fas fa-pen-fancy"></i></span><textarea id="question" rows="2" placeholder="أي استفسار ..."></textarea></div>
+            <div class="input-wrapper"><span class="input-icon" style="top:14px"><i class="fas fa-pen-fancy"></i></span><textarea id="question" rows="2" placeholder="أي استفسار ..."></textarea></div>
         </div>
         <div class="form-group">
             <label>ميعاد التسليم (خلال أسبوع كحد أقصى) <span style="color:#F5C542">*</span></label>
@@ -531,8 +624,8 @@
 <div class="modal-overlay" id="successModal">
     <div class="modal-content">
         <div class="success-icon"><i class="fas fa-check-circle"></i></div>
-        <h2 style="color:#F5C542; margin-bottom:10px">تم الحجز بنجاح</h2>
-        <p style="color:#FFDE9E">شكراً لاختيار Abo Zahra، سنتصل بك فوراً لتأكيد التوصيل</p>
+        <h2 style="color:#F5C542; margin-bottom:8px; font-size:22px;">تم الحجز بنجاح</h2>
+        <p style="color:#FFDE9E; font-size:14px;">شكراً لاختيار Abo Zahra، سنتصل بك فوراً لتأكيد التوصيل</p>
         <a href="#" class="btn-wa" id="whatsappBtn" target="_blank"><i class="fab fa-whatsapp"></i> تواصل عبر واتساب</a>
         <button class="btn-close-modal" id="closeModal">إغلاق</button>
     </div>
@@ -643,17 +736,68 @@
             document.getElementById('whatsappBtn').href = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMsg)}`;
             document.getElementById('successModal').classList.add('show');
             form.reset();
+            dateInput.value = '';
         } catch(err) { alert("حدث خطأ تقني، حاول مجدداً"); console.error(err); }
         finally { submitting=false; submitBtn.classList.remove('loading'); submitBtn.disabled=false; }
     });
 
-    document.getElementById('closeModal').addEventListener('click',()=>document.getElementById('successModal').classList.remove('show'));
-    document.getElementById('closeOfferBtn').addEventListener('click', () => {
-        document.getElementById('offerModal').style.display = 'none';
+    // ========== التحكم في النوافذ المنبثقة ==========
+    const offerModal = document.getElementById('offerModal');
+    const closeOfferBtn = document.getElementById('closeOfferBtn');
+    const successModal = document.getElementById('successModal');
+    const closeModalBtn = document.getElementById('closeModal');
+    const bodyEl = document.body;
+
+    function openOfferModal() {
+        offerModal.classList.add('show');
+        bodyEl.classList.add('modal-open');
+    }
+
+    function closeOfferModal() {
+        offerModal.classList.remove('show');
+        bodyEl.classList.remove('modal-open');
+    }
+
+    function openSuccessModal() {
+        successModal.classList.add('show');
+        bodyEl.classList.add('modal-open');
+    }
+
+    function closeSuccessModal() {
+        successModal.classList.remove('show');
+        bodyEl.classList.remove('modal-open');
+    }
+
+    // إظهار نافذة العرض فوراً عند تحميل الصفحة
+    setTimeout(() => {
+        openOfferModal();
+    }, 100);
+
+    closeOfferBtn.addEventListener('click', closeOfferModal);
+    closeModalBtn.addEventListener('click', closeSuccessModal);
+
+    // إغلاق النوافذ عند الضغط على الخلفية
+    offerModal.addEventListener('click', (e) => {
+        if(e.target === offerModal) closeOfferModal();
     });
-    // Close modal when clicking outside
-    document.getElementById('successModal').addEventListener('click',(e)=>{if(e.target===document.getElementById('successModal')) document.getElementById('successModal').classList.remove('show');});
-    document.getElementById('offerModal').addEventListener('click', (e) => { if(e.target === document.getElementById('offerModal')) document.getElementById('offerModal').style.display = 'none'; });
+    successModal.addEventListener('click', (e) => {
+        if(e.target === successModal) closeSuccessModal();
+    });
+
+    // منع تمرير الصفحة عند فتح نافذة النجاح من خلال الفورم
+    const originalSubmit = form.onsubmit;
+    const successObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if(mutation.attributeName === 'class') {
+                if(successModal.classList.contains('show')) {
+                    bodyEl.classList.add('modal-open');
+                } else {
+                    bodyEl.classList.remove('modal-open');
+                }
+            }
+        });
+    });
+    successObserver.observe(successModal, { attributes: true });
 </script>
 </body>
 </html>
