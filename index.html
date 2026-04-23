@@ -25,7 +25,6 @@
             position: relative;
             overflow-x: hidden;
         }
-        /* منع تمرير الصفحة الخلفية عند فتح النافذة */
         body.modal-open {
             overflow: hidden;
         }
@@ -81,7 +80,7 @@
             to { transform: rotate(360deg); }
         }
 
-        /* ========== MAIN CARD - RESPONSIVE ========== */
+        /* ========== MAIN CARD ========== */
         .card {
             position: relative;
             z-index: 20;
@@ -95,7 +94,6 @@
             box-shadow: 0 40px 70px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(229, 184, 60, 0.15) inset;
         }
 
-        /* Hero Section */
         .hero {
             text-align: center;
             margin-bottom: 30px;
@@ -214,7 +212,6 @@
         }
         .error-msg.show { display: block; }
 
-        /* Button */
         .btn-premium {
             width: 100%;
             padding: 15px;
@@ -249,7 +246,6 @@
         .btn-premium.loading .btn-text { display: none; }
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* Features */
         .features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -267,7 +263,7 @@
         .feature-item i { font-size: 22px; color: #F5C542; margin-bottom: 4px; display: block; }
         .feature-item span { font-size: 11px; color: #FFDE9E; font-weight: 600; }
 
-        /* ========== OFFER MODAL - محسّن للهواتف وقابل للتمرير ========== */
+        /* ========== OFFER MODAL WITH CHECKBOXES ========== */
         .offer-modal {
             position: fixed;
             top: 0;
@@ -293,7 +289,7 @@
             background: linear-gradient(145deg, #0f0c07, #060402);
             border: 2px solid #F5C542;
             border-radius: 48px;
-            max-width: 500px;
+            max-width: 550px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
@@ -306,7 +302,6 @@
         .offer-modal.show .offer-card {
             transform: scale(1);
         }
-        /* تخصيص شريط التمرير داخل النافذة */
         .offer-card::-webkit-scrollbar {
             width: 4px;
         }
@@ -353,28 +348,42 @@
         }
         .product-item {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            justify-content: space-between;
+            padding: 12px 0;
             border-bottom: 1px dashed rgba(229,184,60,0.3);
             font-size: 14px;
             font-weight: 600;
             color: #FFEFCF;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .product-item:hover {
+            background: rgba(245,197,66,0.1);
+            border-radius: 20px;
+            padding: 12px 8px;
+            margin: 0 -8px;
         }
         .product-item:last-child { border: none; }
+        .product-check {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            accent-color: #F5C542;
+        }
         .product-name {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             flex: 2;
-            min-width: 140px;
+            min-width: 160px;
         }
         .product-price {
             display: flex;
             align-items: baseline;
-            gap: 6px;
+            gap: 8px;
             flex-wrap: wrap;
             justify-content: flex-start;
         }
@@ -387,6 +396,16 @@
             color: #F5C542;
             font-weight: 800;
             font-size: 16px;
+        }
+        .selected-products-info {
+            background: rgba(245,197,66,0.1);
+            border-radius: 30px;
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-size: 13px;
+            color: #FFDE9E;
+            text-align: center;
+            border: 1px solid rgba(245,197,66,0.3);
         }
         .gift-highlight {
             background: rgba(245,197,66,0.15);
@@ -420,8 +439,14 @@
         .btn-close-offer:active {
             transform: scale(0.98);
         }
+        .total-price {
+            font-size: 18px;
+            font-weight: 900;
+            color: #F5C542;
+            margin-top: 10px;
+        }
 
-        /* ========== SUCCESS MODAL ========== */
+        /* Success Modal */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -472,7 +497,7 @@
         .btn-wa { background: #25D366; color: white; }
         .btn-close-modal { background: rgba(245,197,66,0.15); color: #F5C542; border: 1px solid #F5C542; cursor: pointer; }
 
-        /* ========== RESPONSIVE ========== */
+        /* Responsive */
         @media (max-width: 600px) {
             body { padding: 12px; }
             .card { padding: 20px 18px 28px; border-radius: 36px; }
@@ -484,25 +509,21 @@
             input, textarea { padding: 11px 40px 11px 14px; font-size: 13px; }
             .btn-premium { padding: 13px; font-size: 15px; }
             
-            /* تحسينات النافذة المنبثقة للهواتف */
             .offer-modal { padding: 12px; }
-            .offer-card { padding: 18px 16px; border-radius: 32px; max-height: 85vh; }
+            .offer-card { padding: 18px 14px; border-radius: 32px; max-height: 85vh; }
             .offer-header { font-size: 20px; }
             .offer-header i { font-size: 24px; }
-            .product-list { padding: 12px; }
-            .product-item { flex-direction: column; align-items: stretch; text-align: center; gap: 6px; }
-            .product-name { justify-content: center; }
-            .product-price { justify-content: center; }
+            .product-list { padding: 10px; }
+            .product-item { flex-direction: row; flex-wrap: wrap; }
+            .product-name { min-width: 130px; font-size: 13px; }
             .gift-highlight { font-size: 14px; padding: 10px; }
             .btn-close-offer { padding: 12px; font-size: 15px; }
         }
 
-        @media (max-width: 380px) {
-            .card { padding: 16px 14px 24px; }
-            .brand-name { font-size: 22px; }
-            .offer-card { padding: 14px 12px; }
-            .offer-header { font-size: 18px; }
-            .product-name { font-size: 13px; }
+        @media (max-width: 480px) {
+            .product-item { flex-direction: column; align-items: flex-start; }
+            .product-name { width: 100%; }
+            .product-price { align-self: flex-end; }
         }
     </style>
 </head>
@@ -516,7 +537,7 @@
     <div class="gold-ring ring3"></div>
 </div>
 
-<!-- عرض منبثق - يظهر أول ما العميل يفتح الموقع -->
+<!-- عرض منبثق مع خيارات الاختيار -->
 <div id="offerModal" class="offer-modal">
     <div class="offer-card">
         <div class="offer-header">
@@ -527,29 +548,51 @@
         <div class="limited-badge">
             <i class="fas fa-clock"></i> العرض ساري حتى نفاذ الكمية
         </div>
-        <p style="color:#FFDE9E; margin-bottom:6px; font-weight:600; font-size:14px;">✨ دي الأجهزة المتوفرة 👇<br>كلها مخفية بلوتوث + سيريال متغير ✅</p>
+        <p style="color:#FFDE9E; margin-bottom:6px; font-weight:600; font-size:14px;">✨ اختر المنتجات التي تريدها (يمكنك اختيار أكثر من منتج) 👇</p>
         
-        <div class="product-list">
-            <div class="product-item">
-                <span class="product-name">💳 فيزا Type-C</span>
+        <div class="product-list" id="productList">
+            <div class="product-item" data-name="💳 فيزا Type-C" data-price="2500" data-old="2800">
+                <input type="checkbox" class="product-check" id="prod1">
+                <label for="prod1" class="product-name">💳 فيزا Type-C</label>
                 <span class="product-price"><span class="price-old">2800</span> ➜ <span class="price-new">2500</span></span>
             </div>
-            <div class="product-item">
-                <span class="product-name">💳 فيزا معدلة</span>
+            <div class="product-item" data-name="💳 فيزا معدلة" data-price="3000" data-old="3300">
+                <input type="checkbox" class="product-check" id="prod2">
+                <label for="prod2" class="product-name">💳 فيزا معدلة</label>
                 <span class="product-price"><span class="price-old">3300</span> ➜ <span class="price-new">3000</span></span>
             </div>
-            <div class="product-item">
-                <span class="product-name">🎧 ميني معدلة 🔥</span>
+            <div class="product-item" data-name="🎧 ميني معدلة 🔥" data-price="3150" data-old="3500">
+                <input type="checkbox" class="product-check" id="prod3">
+                <label for="prod3" class="product-name">🎧 ميني معدلة 🔥</label>
                 <span class="product-price"><span class="price-old">3500</span> ➜ <span class="price-new">3150</span></span>
             </div>
-            <div class="product-item">
-                <span class="product-name">🧮 سماعة آلة حاسبة</span>
+            <div class="product-item" data-name="🧮 سماعة آلة حاسبة" data-price="3600" data-old="4000">
+                <input type="checkbox" class="product-check" id="prod4">
+                <label for="prod4" class="product-name">🧮 سماعة آلة حاسبة</label>
                 <span class="product-price"><span class="price-old">4000</span> ➜ <span class="price-new">3600</span></span>
             </div>
-            <div class="product-item">
-                <span class="product-name">👕 تيشيرت / بوكسر / توكة / برا</span>
+            <div class="product-item" data-name="👕 تيشيرت / بوكسر / توكة / برا" data-price="3600" data-old="4000">
+                <input type="checkbox" class="product-check" id="prod5">
+                <label for="prod5" class="product-name">👕 تيشيرت / بوكسر / توكة / برا</label>
                 <span class="product-price"><span class="price-old">4000</span> ➜ <span class="price-new">3600</span></span>
             </div>
+            <div class="product-item" data-name="📦 علبة حجر سوني (10 حجرات)" data-price="400" data-old="600">
+                <input type="checkbox" class="product-check" id="prod6">
+                <label for="prod6" class="product-name">📦 علبة حجر سوني (10 حجرات)</label>
+                <span class="product-price"><span class="price-old">600</span> ➜ <span class="price-new">400</span></span>
+            </div>
+            <div class="product-item" data-name="👂 البزره (سماعة داخل الأذن فقط)" data-price="800" data-old="1000">
+                <input type="checkbox" class="product-check" id="prod7">
+                <label for="prod7" class="product-name">👂 البزره (سماعة داخل الأذن فقط)</label>
+                <span class="product-price"><span class="price-old">1000</span> ➜ <span class="price-new">800</span></span>
+            </div>
+        </div>
+
+        <div class="selected-products-info" id="selectedInfo">
+            📦 لم يتم اختيار أي منتج بعد
+        </div>
+        <div class="total-price" id="totalPriceDisplay">
+            💰 الإجمالي: 0 ج.م
         </div>
 
         <div class="gift-highlight">
@@ -558,8 +601,8 @@
         <div class="offer-footer">
             ⏳ العرض لفترة محدودة أو حتى نفاذ الكمية
         </div>
-        <button class="btn-close-offer" id="closeOfferBtn">
-            <i class="fas fa-cart-shopping"></i> أطلب دلوقتي واستفد بالعرض
+        <button class="btn-close-offer" id="confirmOrderBtn">
+            <i class="fas fa-cart-shopping"></i> أطلب دلوقتي
         </button>
     </div>
 </div>
@@ -596,7 +639,7 @@
         </div>
         <div class="form-group">
             <label>نوع السماعة <span style="color:#F5C542">*</span></label>
-            <div class="input-wrapper"><span class="input-icon"><i class="fas fa-head-side-headphones"></i></span><input type="text" id="device" placeholder="سماعة بلوتوث نانو / ميني VIP"></div>
+            <div class="input-wrapper"><span class="input-icon"><i class="fas fa-head-side-headphones"></i></span><input type="text" id="device" placeholder="اختر المنتجات من النافذة المنبثقة"></div>
             <div class="error-msg" id="deviceError"></div>
         </div>
         <div class="form-group">
@@ -610,7 +653,7 @@
         </div>
         <button type="submit" class="btn-premium" id="submitBtn">
             <span class="spinner"></span>
-            <span class="btn-text"><i class="fas fa-gem"></i> احجز الآن - ضمان الفخامة</span>
+            <span class="btn-text"><i class="fas fa-gem"></i> تأكيد الحجز</span>
         </button>
     </form>
 
@@ -645,6 +688,70 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
+    // المنتجات المختارة
+    let selectedProducts = [];
+
+    // تحديث عرض المنتجات المختارة والإجمالي
+    function updateSelectedProducts() {
+        const checkboxes = document.querySelectorAll('.product-check');
+        selectedProducts = [];
+        let total = 0;
+        
+        checkboxes.forEach((cb, index) => {
+            if(cb.checked) {
+                const item = cb.closest('.product-item');
+                const name = item.getAttribute('data-name');
+                const price = parseInt(item.getAttribute('data-price'));
+                selectedProducts.push({ name, price });
+                total += price;
+            }
+        });
+        
+        const selectedInfo = document.getElementById('selectedInfo');
+        const totalDisplay = document.getElementById('totalPriceDisplay');
+        
+        if(selectedProducts.length === 0) {
+            selectedInfo.innerHTML = '📦 لم يتم اختيار أي منتج بعد';
+            totalDisplay.innerHTML = '💰 الإجمالي: 0 ج.م';
+        } else {
+            selectedInfo.innerHTML = '✅ المنتجات المختارة: ' + selectedProducts.map(p => p.name).join(' + ');
+            totalDisplay.innerHTML = '💰 الإجمالي: ' + total + ' ج.م';
+        }
+    }
+    
+    // إضافة مستمعين للcheckbox
+    document.querySelectorAll('.product-check').forEach(cb => {
+        cb.addEventListener('change', updateSelectedProducts);
+    });
+    
+    // تأكيد الطلب من النافذة المنبثقة
+    const confirmOrderBtn = document.getElementById('confirmOrderBtn');
+    const deviceInput = document.getElementById('device');
+    
+    confirmOrderBtn.addEventListener('click', () => {
+        if(selectedProducts.length === 0) {
+            alert('⚠️ الرجاء اختيار منتج واحد على الأقل');
+            return;
+        }
+        
+        // تجهيز نص المنتجات المختارة مع الأسعار
+        let productsText = '';
+        let total = 0;
+        selectedProducts.forEach((p, idx) => {
+            productsText += `${idx+1}- ${p.name} (${p.price} ج.م)\n`;
+            total += p.price;
+        });
+        productsText += `\n💰 الإجمالي: ${total} ج.م`;
+        
+        deviceInput.value = productsText;
+        
+        // إغلاق النافذة المنبثقة
+        closeOfferModal();
+        
+        // تمرير سلس للفورم
+        document.querySelector('.card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    
     // Date limits
     const today = new Date();
     const todayStr = today.toISOString().split('T')[0];
@@ -654,7 +761,7 @@
     const dateInput = document.getElementById('deliveryDate');
     dateInput.setAttribute('min', todayStr);
     dateInput.setAttribute('max', maxDateStr);
-
+    
     function isValidPhone(p) { return /^01[0-9]{9}$/.test(p); }
     function showError(inputId, errId, msg) {
         document.getElementById(inputId).classList.add('error');
@@ -665,7 +772,7 @@
         document.getElementById(inputId).classList.remove('error');
         document.getElementById(errId).classList.remove('show');
     }
-
+    
     // Typing animation
     const phrases = ["سماعات الثانوية العامة", "أداء خارق 2026", "تكنولوجيا صامتة فاخرة", "Abo Zahra Elite", "احجز مستقبلك الآن"];
     let idx = 0, charIndex = 0, currentText = "", isDeleting = false;
@@ -692,12 +799,12 @@
         }
     }
     typeEffect();
-
+    
     // Form submit
     const form = document.getElementById('reservationForm');
     const submitBtn = document.getElementById('submitBtn');
     let submitting = false;
-
+    
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         if(submitting) return;
@@ -709,20 +816,20 @@
         const question = document.getElementById('question').value.trim();
         const deliveryDate = document.getElementById('deliveryDate').value;
         let valid = true;
-
+        
         if(!name) { showError('name','nameError','الاسم مطلوب'); valid=false; } else clearError('name','nameError');
         if(!phone) { showError('phone','phoneError','رقم الجوال مطلوب'); valid=false; }
         else if(!isValidPhone(phone)) { showError('phone','phoneError','رقم غير صحيح (يبدأ 01)'); valid=false; }
         else clearError('phone','phoneError');
         if(!address) { showError('address','addressError','العنوان مطلوب'); valid=false; } else clearError('address','addressError');
-        if(!device) { showError('device','deviceError','نوع السماعة مطلوب'); valid=false; } else clearError('device','deviceError');
+        if(!device) { showError('device','deviceError','الرجاء اختيار المنتجات من النافذة المنبثقة'); valid=false; } else clearError('device','deviceError');
         if(!deliveryDate) { showError('deliveryDate','dateError','اختار تاريخ التسليم'); valid=false; }
         else if(deliveryDate > maxDateStr) { showError('deliveryDate','dateError',`لا يتجاوز أسبوع (أقصى تاريخ ${maxDateStr})`); valid=false; }
         else if(deliveryDate < todayStr) { showError('deliveryDate','dateError','لا يمكن اختيار تاريخ مضى'); valid=false; }
         else clearError('deliveryDate','dateError');
         
         if(!valid) return;
-
+        
         submitting = true;
         submitBtn.classList.add('loading');
         submitBtn.disabled = true;
@@ -732,60 +839,51 @@
                 created_at: firebase.firestore.FieldValue.serverTimestamp()
             });
             const waNumber = '201282235324';
-            let waMsg = `🎧 طلب حجز - Abo Zahra Premium\nالاسم: ${name}\nالهاتف: ${phone}\nالعنوان: ${address}\nالسماعة: ${device}\nالتسليم: ${deliveryDate}\nملاحظات: ${question || "لا يوجد"}`;
+            let waMsg = `🎧 طلب حجز - Abo Zahra Premium\n\n👤 الاسم: ${name}\n📞 الهاتف: ${phone}\n📍 العنوان: ${address}\n\n📦 المنتجات:\n${device}\n\n📅 التسليم: ${deliveryDate}\n💬 ملاحظات: ${question || "لا يوجد"}`;
             document.getElementById('whatsappBtn').href = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMsg)}`;
             document.getElementById('successModal').classList.add('show');
             form.reset();
             dateInput.value = '';
+            deviceInput.value = '';
+            // إعادة تعيين الاختيارات
+            document.querySelectorAll('.product-check').forEach(cb => cb.checked = false);
+            updateSelectedProducts();
         } catch(err) { alert("حدث خطأ تقني، حاول مجدداً"); console.error(err); }
         finally { submitting=false; submitBtn.classList.remove('loading'); submitBtn.disabled=false; }
     });
-
-    // ========== التحكم في النوافذ المنبثقة ==========
+    
+    // Modal controls
     const offerModal = document.getElementById('offerModal');
-    const closeOfferBtn = document.getElementById('closeOfferBtn');
     const successModal = document.getElementById('successModal');
     const closeModalBtn = document.getElementById('closeModal');
     const bodyEl = document.body;
-
+    
     function openOfferModal() {
         offerModal.classList.add('show');
         bodyEl.classList.add('modal-open');
     }
-
+    
     function closeOfferModal() {
         offerModal.classList.remove('show');
         bodyEl.classList.remove('modal-open');
     }
-
-    function openSuccessModal() {
-        successModal.classList.add('show');
-        bodyEl.classList.add('modal-open');
-    }
-
+    
     function closeSuccessModal() {
         successModal.classList.remove('show');
         bodyEl.classList.remove('modal-open');
     }
-
-    // إظهار نافذة العرض فوراً عند تحميل الصفحة
-    setTimeout(() => {
-        openOfferModal();
-    }, 100);
-
-    closeOfferBtn.addEventListener('click', closeOfferModal);
+    
+    setTimeout(() => { openOfferModal(); }, 100);
+    
     closeModalBtn.addEventListener('click', closeSuccessModal);
-
-    // إغلاق النوافذ عند الضغط على الخلفية
+    
     offerModal.addEventListener('click', (e) => {
         if(e.target === offerModal) closeOfferModal();
     });
     successModal.addEventListener('click', (e) => {
         if(e.target === successModal) closeSuccessModal();
     });
-
-    // منع تمرير الصفحة عند فتح نافذة النجاح من خلال الفورم
-    const originalSubmit = form.onsubmit;
+    
     const successObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
             if(mutation.attributeName === 'class') {
@@ -798,6 +896,18 @@
         });
     });
     successObserver.observe(successModal, { attributes: true });
+    
+    // النقر على اسم المنتج يحدد checkbox
+    document.querySelectorAll('.product-name').forEach(label => {
+        label.style.cursor = 'pointer';
+        label.addEventListener('click', (e) => {
+            const cb = label.previousElementSibling;
+            if(cb && cb.type === 'checkbox') {
+                cb.checked = !cb.checked;
+                updateSelectedProducts();
+            }
+        });
+    });
 </script>
 </body>
 </html>
