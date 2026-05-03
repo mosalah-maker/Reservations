@@ -112,6 +112,8 @@
         .feature-item { text-align: center; background: rgba(0,0,0,0.3); border-radius: 30px; padding: 6px; }
         .feature-item i { font-size: 18px; color: #F5C542; margin-bottom: 3px; display: block; }
         .feature-item span { font-size: 10px; color: #FFDE9E; font-weight: 600; }
+        
+        /* Offer Modal Styles with Quantity */
         .offer-modal {
             position: fixed;
             top: 0;
@@ -135,7 +137,7 @@
             border: 2px solid #F5C542;
             border-radius: 36px;
             width: 100%;
-            max-width: 500px;
+            max-width: 550px;
             max-height: 92vh;
             overflow-y: auto;
             padding: 18px 16px;
@@ -150,21 +152,36 @@
         .offer-header { text-align: center; margin-bottom: 12px; }
         .offer-header h2 { font-size: 22px; font-weight: 900; background: linear-gradient(135deg, #FFD966, #F5C542); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-flex; align-items: center; gap: 8px; }
         .limited-badge { background: rgba(229,184,60,0.15); border-radius: 50px; padding: 4px 12px; display: inline-block; font-size: 11px; color: #FFDE9E; border: 1px solid rgba(229,184,60,0.4); margin-bottom: 12px; }
-        .products-grid { display: flex; flex-direction: column; gap: 8px; margin: 12px 0; }
-        .product-card { background: rgba(0,0,0,0.5); border-radius: 28px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; border: 1px solid rgba(229,184,60,0.2); transition: all 0.2s; }
-        .product-card.selected { background: rgba(245,197,66,0.1); border-color: #F5C542; }
-        .product-info { display: flex; align-items: center; gap: 10px; flex: 2; min-width: 140px; }
-        .product-check { width: 20px; height: 20px; accent-color: #F5C542; cursor: pointer; }
-        .product-name { font-size: 13px; font-weight: 700; color: #FFEFCF; }
-        .product-prices { display: flex; align-items: baseline; gap: 6px; }
-        .old-price { font-size: 12px; color: #a07a2c; text-decoration: line-through; }
+        
+        .products-grid { display: flex; flex-direction: column; gap: 12px; margin: 12px 0; }
+        .product-card { background: rgba(0,0,0,0.5); border-radius: 24px; padding: 12px; border: 1px solid rgba(229,184,60,0.2); transition: all 0.2s; }
+        .product-card.selected { background: rgba(245,197,66,0.08); border-color: #F5C542; }
+        .product-info { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .product-name-area { flex: 2; min-width: 150px; }
+        .product-name { font-size: 14px; font-weight: 700; color: #FFEFCF; display: block; }
+        .old-price { font-size: 11px; color: #a07a2c; text-decoration: line-through; margin-left: 6px; }
         .new-price { font-size: 15px; font-weight: 800; color: #F5C542; }
-        .selection-summary { background: rgba(245,197,66,0.08); border-radius: 30px; padding: 10px; margin: 12px 0; text-align: center; border: 1px solid rgba(245,197,66,0.2); }
-        .selection-summary p { font-size: 12px; color: #FFDE9E; margin-bottom: 5px; }
-        .total-price-large { font-size: 20px; font-weight: 900; color: #F5C542; }
+        
+        .quantity-control { display: flex; align-items: center; gap: 8px; background: #1a1408; border-radius: 50px; padding: 4px 8px; border: 1px solid rgba(229,184,60,0.3); }
+        .qty-btn { width: 28px; height: 28px; border-radius: 50%; background: #2a2418; border: none; color: #F5C542; font-size: 16px; font-weight: bold; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; }
+        .qty-btn:hover { background: #F5C542; color: #1a1408; }
+        .qty-value { font-size: 16px; font-weight: 700; color: #FFDE9E; min-width: 30px; text-align: center; }
+        .product-total { font-size: 14px; font-weight: 700; color: #F5C542; min-width: 70px; text-align: left; }
+        
+        @media (max-width: 550px) {
+            .product-info { flex-direction: column; align-items: stretch; text-align: center; }
+            .quantity-control { justify-content: center; }
+            .product-total { text-align: center; margin-top: 6px; }
+        }
+        
+        .selection-summary { background: rgba(245,197,66,0.08); border-radius: 30px; padding: 12px; margin: 12px 0; text-align: center; border: 1px solid rgba(245,197,66,0.2); }
+        .selection-summary p { font-size: 13px; color: #FFDE9E; margin-bottom: 8px; }
+        .selected-items-list { font-size: 12px; color: #E5B83C; max-height: 100px; overflow-y: auto; margin-bottom: 8px; }
+        .total-price-large { font-size: 24px; font-weight: 900; color: #F5C542; }
         .gift-box { background: rgba(245,197,66,0.12); border-radius: 30px; padding: 10px; margin: 12px 0; text-align: center; font-size: 13px; font-weight: 700; color: #FFDE9E; }
         .offer-footer-note { font-size: 11px; color: #E5B83C; text-align: center; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(229,184,60,0.2); }
-        .confirm-order-btn { background: linear-gradient(95deg, #F5C542, #D4AF37); width: 100%; padding: 12px; border: none; border-radius: 40px; font-weight: 900; font-size: 15px; color: #1f1909; margin-top: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .confirm-order-btn { background: linear-gradient(95deg, #F5C542, #D4AF37); width: 100%; padding: 14px; border: none; border-radius: 40px; font-weight: 900; font-size: 16px; color: #1f1909; margin-top: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -185,8 +202,8 @@
         .btn-wa, .btn-close-modal { display: block; width: 100%; padding: 10px; margin-top: 8px; border-radius: 35px; text-decoration: none; font-weight: 800; font-size: 13px; text-align: center; }
         .btn-wa { background: #25D366; color: white; }
         .btn-close-modal { background: rgba(245,197,66,0.15); color: #F5C542; border: 1px solid #F5C542; cursor: pointer; }
+        
         @media (min-width: 768px) { .card { padding: 28px 32px; } .logo-icon { width: 70px; height: 70px; font-size: 36px; } .brand-name { font-size: 34px; } }
-        @media (max-width: 480px) { .product-card { flex-direction: column; align-items: stretch; text-align: center; } .product-info { justify-content: center; } .product-prices { justify-content: center; } .offer-card { padding: 14px; } }
     </style>
 </head>
 <body>
@@ -208,93 +225,11 @@
             <i class="fas fa-clock"></i> العرض لفترة محدودة أو حتى نفاذ الكمية
         </div>
         
-        <div class="products-grid" id="productsGrid">
-            <div class="product-card" data-name="🔥باكيدج الكليات (كاميرا4k + ميني معدله + 10 حجرات)" data-price="10000">
-                <div class="product-info">
-                    <input type="checkbox" class="product-check" id="prod_package">
-                    <label for="prod_package" class="product-name">🔥باكيدج الكليات (كاميرا4k + ميني معدله + 10 حجرات)</label>
-                </div>
-                <div class="product-prices">
-                    <span class="old-price">12000</span>
-                    <span class="new-price">10000 ج.م</span>
-                </div>
-            </div>
-            <div class="product-card" data-name="💳 فيزا Type-C" data-price="2500">
-                <div class="product-info">
-                    <input type="checkbox" class="product-check" id="prod1">
-                    <label for="prod1" class="product-name">💳 فيزا Type-C</label>
-                </div>
-                <div class="product-prices">
-                    <span class="old-price">2800</span>
-                    <span class="new-price">2500 ج.م</span>
-                </div>
-            </div>
-            <div class="product-card" data-name="💳 فيزا معدلة" data-price="3000">
-                <div class="product-info">
-                    <input type="checkbox" class="product-check" id="prod2">
-                    <label for="prod2" class="product-name">💳 فيزا معدلة</label>
-                </div>
-                <div class="product-prices">
-                    <span class="old-price">3300</span>
-                    <span class="new-price">3000 ج.م</span>
-                </div>
-            </div>
-            <div class="product-card" data-name="🎧 ميني معدلة 🔥" data-price="3200">
-                <div class="product-info">
-                    <input type="checkbox" class="product-check" id="prod3">
-                    <label for="prod3" class="product-name">🎧 ميني معدلة 🔥</label>
-                </div>
-                <div class="product-prices">
-                    <span class="old-price">3500</span>
-                    <span class="new-price">3200 ج.م</span>
-                </div>
-            </div>
-            <div class="product-card" data-name="🧮 سماعة آلة حاسبة" data-price="3600">
-                <div class="product-info">
-                    <input type="checkbox" class="product-check" id="prod4">
-                    <label for="prod4" class="product-name">🧮 سماعة آلة حاسبة</label>
-                </div>
-                <div class="product-prices">
-                    <span class="old-price">4000</span>
-                    <span class="new-price">3600 ج.م</span>
-                </div>
-            </div>
-            <div class="product-card" data-name="👕 تيشيرت / بوكسر / توكة / برا" data-price="3500">
-                <div class="product-info">
-                    <input type="checkbox" class="product-check" id="prod5">
-                    <label for="prod5" class="product-name">👕 تيشيرت / بوكسر / توكة / برا</label>
-                </div>
-                <div class="product-prices">
-                    <span class="old-price">4000</span>
-                    <span class="new-price">3500 ج.م</span>
-                </div>
-            </div>
-            <div class="product-card" data-name="📦 علبة الحجر السوني الاصليه (10 حجرات)" data-price="400">
-                <div class="product-info">
-                    <input type="checkbox" class="product-check" id="prod6">
-                    <label for="prod6" class="product-name">📦 علبة الحجر السوني الاصليه (10 حجرات)</label>
-                </div>
-                <div class="product-prices">
-                    <span class="old-price">700</span>
-                    <span class="new-price">400 ج.م</span>
-                </div>
-            </div>
-            <!-- البذره A808 -->
-            <div class="product-card" data-name="👂 البذره A808 (سماعة داخل الأذن)" data-price="800">
-                <div class="product-info">
-                    <input type="checkbox" class="product-check" id="prod7">
-                    <label for="prod7" class="product-name">👂 البذره A808 (سماعة داخل الأذن)</label>
-                </div>
-                <div class="product-prices">
-                    <span class="old-price">1000</span>
-                    <span class="new-price">800 ج.م</span>
-                </div>
-            </div>
-        </div>
+        <div class="products-grid" id="productsGrid"></div>
 
         <div class="selection-summary" id="selectionSummary">
-            <p>📦 المنتجات المختارة</p>
-            <span id="selectedNames">لم يتم اختيار أي منتج</span>
+            <p>🛒 المنتجات المختارة</p>
+            <div class="selected-items-list" id="selectedItemsList">لم يتم اختيار أي منتج</div>
             <div class="total-price-large" id="totalPriceDisplay">0 ج.م</div>
         </div>
 
@@ -352,7 +287,7 @@
             <div class="error-msg" id="addressError"></div>
         </div>
         <div class="form-group">
-            <label>نوع السماعة <span style="color:#F5C542">*</span></label>
+            <label>المنتجات المطلوبة <span style="color:#F5C542">*</span></label>
             <div class="input-wrapper"><span class="input-icon"><i class="fas fa-head-side-headphones"></i></span><input type="text" id="device" placeholder="اختر المنتجات من النافذة المنبثقة" readonly style="background:#0a0602; cursor:pointer;" onclick="openOfferModalFunction()"></div>
             <div class="error-msg" id="deviceError"></div>
         </div>
@@ -402,33 +337,86 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-    let selectedProducts = [];
-    
-    function updateSelection() {
-        const checkboxes = document.querySelectorAll('#offerModal .product-check');
-        selectedProducts = [];
+    // المنتجات مع الأسعار
+    const products = [
+        { id: 0, name: "🔥باكيدج الكليات (كاميرا4k + ميني معدله + 10 حجرات)", price: 10000, oldPrice: 12000 },
+        { id: 1, name: "💳 فيزا Type-C", price: 2500, oldPrice: 2800 },
+        { id: 2, name: "💳 فيزا معدلة", price: 3000, oldPrice: 3300 },
+        { id: 3, name: "🎧 ميني معدلة 🔥", price: 3200, oldPrice: 3500 },
+        { id: 4, name: "🧮 سماعة آلة حاسبة", price: 3600, oldPrice: 4000 },
+        { id: 5, name: "👕 تيشيرت / بوكسر / توكة / برا", price: 3500, oldPrice: 4000 },
+        { id: 6, name: "📦 علبة الحجر السوني الاصليه (10 حجرات)", price: 400, oldPrice: 700 },
+        { id: 7, name: "👂 البذره A808 (سماعة داخل الأذن)", price: 800, oldPrice: 1000 }
+    ];
+
+    let quantities = [0, 0, 0, 0, 0, 0, 0, 0];
+
+    function renderProducts() {
+        const grid = document.getElementById('productsGrid');
+        grid.innerHTML = '';
+        products.forEach((product, idx) => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            if (quantities[idx] > 0) card.classList.add('selected');
+            card.innerHTML = `
+                <div class="product-info">
+                    <div class="product-name-area">
+                        <span class="product-name">${product.name}</span>
+                        <div>
+                            <span class="old-price">${product.oldPrice} ج.م</span>
+                            <span class="new-price">${product.price} ج.م</span>
+                        </div>
+                    </div>
+                    <div class="quantity-control">
+                        <button class="qty-btn" onclick="changeQuantity(${idx}, -1)">-</button>
+                        <span class="qty-value" id="qty_${idx}">${quantities[idx]}</span>
+                        <button class="qty-btn" onclick="changeQuantity(${idx}, 1)">+</button>
+                    </div>
+                    <div class="product-total" id="total_${idx}">${(quantities[idx] * product.price).toFixed(0)} ج.م</div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    window.changeQuantity = function(idx, delta) {
+        const newQty = quantities[idx] + delta;
+        if (newQty >= 0 && newQty <= 99) {
+            quantities[idx] = newQty;
+            updateProductDisplay(idx);
+            updateSummary();
+        }
+    }
+
+    function updateProductDisplay(idx) {
+        const qtySpan = document.getElementById(`qty_${idx}`);
+        const totalSpan = document.getElementById(`total_${idx}`);
+        const card = document.querySelectorAll('.product-card')[idx];
+        if (qtySpan) qtySpan.innerText = quantities[idx];
+        if (totalSpan) totalSpan.innerText = (quantities[idx] * products[idx].price).toFixed(0) + ' ج.م';
+        if (card) {
+            if (quantities[idx] > 0) card.classList.add('selected');
+            else card.classList.remove('selected');
+        }
+    }
+
+    function updateSummary() {
+        const selectedItems = [];
         let total = 0;
-        checkboxes.forEach(cb => {
-            if(cb.checked) {
-                const card = cb.closest('.product-card');
-                const name = card.getAttribute('data-name');
-                const price = parseInt(card.getAttribute('data-price'));
-                selectedProducts.push({ name, price });
-                total += price;
-                card.classList.add('selected');
-            } else {
-                const card = cb.closest('.product-card');
-                card.classList.remove('selected');
+        products.forEach((product, idx) => {
+            if (quantities[idx] > 0) {
+                selectedItems.push(`${product.name} × ${quantities[idx]} = ${quantities[idx] * product.price} ج.م`);
+                total += quantities[idx] * product.price;
             }
         });
-        const namesText = selectedProducts.length ? selectedProducts.map(p => p.name).join(' + ') : 'لم يتم اختيار أي منتج';
-        document.getElementById('selectedNames').innerHTML = namesText;
+        const listDiv = document.getElementById('selectedItemsList');
+        listDiv.innerHTML = selectedItems.length ? selectedItems.join('<br>') : 'لم يتم اختيار أي منتج';
         document.getElementById('totalPriceDisplay').innerHTML = total + ' ج.م';
     }
-    
-    document.querySelectorAll('#offerModal .product-check').forEach(cb => cb.addEventListener('change', updateSelection));
-    updateSelection();
-    
+
+    renderProducts();
+    updateSummary();
+
     const confirmBtn = document.getElementById('confirmOrderBtn');
     const deviceInput = document.getElementById('device');
     const offerModal = document.getElementById('offerModal');
@@ -451,17 +439,20 @@
     }
     
     confirmBtn.addEventListener('click', () => {
-        if(selectedProducts.length === 0) {
+        const selectedProductsList = [];
+        let total = 0;
+        products.forEach((product, idx) => {
+            if (quantities[idx] > 0) {
+                selectedProductsList.push(`${product.name} × ${quantities[idx]} = ${quantities[idx] * product.price} ج.م`);
+                total += quantities[idx] * product.price;
+            }
+        });
+        if (selectedProductsList.length === 0) {
             alert('⚠️ الرجاء اختيار منتج واحد على الأقل');
             return;
         }
-        let productsText = '';
-        let total = 0;
-        selectedProducts.forEach((p, i) => {
-            productsText += `${i+1}- ${p.name} (${p.price} ج.م)\n`;
-            total += p.price;
-        });
-        productsText += `\n💰 الإجمالي: ${total} ج.م`;
+        let productsText = selectedProductsList.join('\n');
+        productsText += `\n\n💰 الإجمالي الكلي: ${total} ج.م`;
         deviceInput.value = productsText;
         closeOfferModal();
         setTimeout(() => document.querySelector('.card').scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
@@ -478,12 +469,10 @@
     
     function isValidPhone(p) { return /^01[0-9]{9}$/.test(p); }
     function showError(inputId, errId, msg) {
-        document.getElementById(inputId).classList.add('error');
         document.getElementById(errId).innerHTML = '⚠ ' + msg;
         document.getElementById(errId).classList.add('show');
     }
     function clearError(inputId, errId) {
-        document.getElementById(inputId).classList.remove('error');
         document.getElementById(errId).classList.remove('show');
     }
     
@@ -537,8 +526,9 @@
             successModal.classList.add('show');
             form.reset();
             deviceInput.value = '';
-            document.querySelectorAll('#offerModal .product-check').forEach(cb => cb.checked = false);
-            updateSelection();
+            quantities = [0, 0, 0, 0, 0, 0, 0, 0];
+            renderProducts();
+            updateSummary();
         } catch(err) { alert("حدث خطأ تقني"); }
         finally { submitting=false; submitBtn.classList.remove('loading'); }
     });
