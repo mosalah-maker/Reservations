@@ -8,12 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Cairo', sans-serif;
             min-height: 100vh;
@@ -25,11 +20,7 @@
             position: relative;
             overflow-x: hidden;
         }
-        body.modal-open {
-            overflow: hidden;
-        }
-
-        /* ========== BACKGROUND ========== */
+        body.modal-open { overflow: hidden; }
         .animated-bg {
             position: fixed;
             top: 0;
@@ -79,8 +70,6 @@
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-
-        /* ========== MAIN CARD ========== */
         .card {
             position: relative;
             z-index: 20;
@@ -93,202 +82,36 @@
             padding: 20px 22px 28px;
             box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
         }
-
-        .hero {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .logo-animation {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 8px;
-        }
-        .logo-icon {
-            width: 55px;
-            height: 55px;
-            background: linear-gradient(145deg, #2a2418, #0e0b06);
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            border: 1px solid #F5C542;
-        }
-        .brand-name {
-            font-size: 28px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #F5C542, #FFE4A0, #D4AF37);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .dynamic-text {
-            font-size: 14px;
-            font-weight: 700;
-            color: #F5C542;
-            display: inline-block;
-            background: rgba(0,0,0,0.5);
-            padding: 4px 14px;
-            border-radius: 40px;
-            border-right: 2px solid #F5C542;
-            animation: blinkCursor 0.75s step-end infinite;
-        }
-        @keyframes blinkCursor {
-            from, to { border-color: transparent; }
-            50% { border-color: #F5C542; }
-        }
-        .glow-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(229,184,60,0.1);
-            border: 1px solid rgba(229,184,60,0.4);
-            border-radius: 50px;
-            padding: 4px 12px;
-            margin-top: 10px;
-            font-size: 10px;
-            color: #FFDE9E;
-        }
-
-        /* ========== زر الضمان ========== */
-        .guarantee-btn-wrapper {
-            margin: 15px 0 20px;
-            text-align: center;
-        }
-        .guarantee-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: linear-gradient(135deg, #1a472a, #0d2818);
-            border: 2px solid #F5C542;
-            border-radius: 60px;
-            padding: 12px 20px;
-            width: 100%;
-            text-decoration: none;
-            transition: all 0.3s;
-            box-shadow: 0 0 15px rgba(245,197,66,0.2);
-            animation: pulseLight 2s infinite;
-        }
-        @keyframes pulseLight {
-            0% { box-shadow: 0 0 0 0 rgba(245,197,66,0.3); }
-            70% { box-shadow: 0 0 0 8px rgba(245,197,66,0); }
-            100% { box-shadow: 0 0 0 0 rgba(245,197,66,0); }
-        }
-        .guarantee-icon {
-            font-size: 32px;
-            color: #F5C542;
-        }
-        .guarantee-text h3 {
-            font-size: 20px;
-            font-weight: 900;
-            color: #FFDE9E;
-            margin: 0;
-        }
-        .guarantee-text p {
-            font-size: 11px;
-            color: #E5B83C;
-            margin: 2px 0 0;
-        }
-
-        /* Form */
-        .form-group {
-            margin-bottom: 14px;
-            text-align: right;
-        }
-        .form-group label {
-            font-size: 12px;
-            font-weight: 700;
-            color: #FFDE9E;
-            margin-bottom: 4px;
-            display: block;
-        }
-        .input-wrapper {
-            position: relative;
-        }
-        .input-wrapper .input-icon {
-            position: absolute;
-            right: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-            color: #F5C542;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 11px 40px 11px 14px;
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(229, 184, 60, 0.3);
-            border-radius: 35px;
-            color: #FFF2DF;
-            font-family: 'Cairo', sans-serif;
-            font-size: 13px;
-            transition: all 0.2s;
-            text-align: right;
-        }
-        input:focus, textarea:focus {
-            border-color: #F5C542;
-            outline: none;
-            background: #0a0602;
-        }
-        .error-msg {
-            color: #ffb347;
-            font-size: 10px;
-            margin-top: 4px;
-            display: none;
-        }
+        .hero { text-align: center; margin-bottom: 20px; }
+        .logo-animation { display: flex; justify-content: center; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+        .logo-icon { width: 55px; height: 55px; background: linear-gradient(145deg, #2a2418, #0e0b06); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 28px; border: 1px solid #F5C542; }
+        .brand-name { font-size: 28px; font-weight: 900; background: linear-gradient(135deg, #F5C542, #FFE4A0, #D4AF37); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .dynamic-text { font-size: 14px; font-weight: 700; color: #F5C542; display: inline-block; background: rgba(0,0,0,0.5); padding: 4px 14px; border-radius: 40px; border-right: 2px solid #F5C542; animation: blinkCursor 0.75s step-end infinite; }
+        @keyframes blinkCursor { from, to { border-color: transparent; } 50% { border-color: #F5C542; } }
+        .glow-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(229,184,60,0.1); border: 1px solid rgba(229,184,60,0.4); border-radius: 50px; padding: 4px 12px; margin-top: 10px; font-size: 10px; color: #FFDE9E; }
+        .guarantee-btn-wrapper { margin: 15px 0 20px; text-align: center; }
+        .guarantee-btn { display: flex; align-items: center; justify-content: center; gap: 12px; background: linear-gradient(135deg, #1a472a, #0d2818); border: 2px solid #F5C542; border-radius: 60px; padding: 12px 20px; width: 100%; text-decoration: none; transition: all 0.3s; box-shadow: 0 0 15px rgba(245,197,66,0.2); animation: pulseLight 2s infinite; }
+        @keyframes pulseLight { 0% { box-shadow: 0 0 0 0 rgba(245,197,66,0.3); } 70% { box-shadow: 0 0 0 8px rgba(245,197,66,0); } 100% { box-shadow: 0 0 0 0 rgba(245,197,66,0); } }
+        .guarantee-icon { font-size: 32px; color: #F5C542; }
+        .guarantee-text h3 { font-size: 20px; font-weight: 900; color: #FFDE9E; margin: 0; }
+        .guarantee-text p { font-size: 11px; color: #E5B83C; margin: 2px 0 0; }
+        .form-group { margin-bottom: 14px; text-align: right; }
+        .form-group label { font-size: 12px; font-weight: 700; color: #FFDE9E; margin-bottom: 4px; display: block; }
+        .input-wrapper { position: relative; }
+        .input-wrapper .input-icon { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 14px; color: #F5C542; }
+        input, textarea { width: 100%; padding: 11px 40px 11px 14px; background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(229, 184, 60, 0.3); border-radius: 35px; color: #FFF2DF; font-family: 'Cairo', sans-serif; font-size: 13px; transition: all 0.2s; text-align: right; }
+        input:focus, textarea:focus { border-color: #F5C542; outline: none; background: #0a0602; }
+        .error-msg { color: #ffb347; font-size: 10px; margin-top: 4px; display: none; }
         .error-msg.show { display: block; }
-
-        .btn-premium {
-            width: 100%;
-            padding: 13px;
-            background: linear-gradient(95deg, #E5B83C, #B8860B);
-            border: none;
-            border-radius: 40px;
-            color: #080501;
-            font-weight: 900;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-        .spinner {
-            width: 18px;
-            height: 18px;
-            border: 2px solid rgba(0,0,0,0.2);
-            border-top-color: black;
-            border-radius: 50%;
-            animation: spin 0.6s linear infinite;
-            display: none;
-        }
+        .btn-premium { width: 100%; padding: 13px; background: linear-gradient(95deg, #E5B83C, #B8860B); border: none; border-radius: 40px; color: #080501; font-weight: 900; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; cursor: pointer; }
+        .spinner { width: 18px; height: 18px; border: 2px solid rgba(0,0,0,0.2); border-top-color: black; border-radius: 50%; animation: spin 0.6s linear infinite; display: none; }
         .btn-premium.loading .spinner { display: block; }
         .btn-premium.loading .btn-text { display: none; }
         @keyframes spin { to { transform: rotate(360deg); } }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px dashed rgba(229,184,60,0.2);
-        }
-        .feature-item {
-            text-align: center;
-            background: rgba(0,0,0,0.3);
-            border-radius: 30px;
-            padding: 6px;
-        }
+        .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 20px; padding-top: 15px; border-top: 1px dashed rgba(229,184,60,0.2); }
+        .feature-item { text-align: center; background: rgba(0,0,0,0.3); border-radius: 30px; padding: 6px; }
         .feature-item i { font-size: 18px; color: #F5C542; margin-bottom: 3px; display: block; }
         .feature-item span { font-size: 10px; color: #FFDE9E; font-weight: 600; }
-
-        /* ========== OFFER MODAL - ظاهر وبشكل جميل ========== */
         .offer-modal {
             position: fixed;
             top: 0;
@@ -306,10 +129,7 @@
             visibility: hidden;
             transition: all 0.25s ease;
         }
-        .offer-modal.show {
-            opacity: 1;
-            visibility: visible;
-        }
+        .offer-modal.show { opacity: 1; visibility: visible; }
         .offer-card {
             background: linear-gradient(145deg, #0f0c07, #060402);
             border: 2px solid #F5C542;
@@ -323,155 +143,28 @@
             transform: scale(0.95);
             transition: transform 0.2s ease;
         }
-        .offer-modal.show .offer-card {
-            transform: scale(1);
-        }
-        .offer-card::-webkit-scrollbar {
-            width: 3px;
-        }
-        .offer-card::-webkit-scrollbar-track {
-            background: #1a1408;
-        }
-        .offer-card::-webkit-scrollbar-thumb {
-            background: #F5C542;
-        }
-        
-        .offer-header {
-            text-align: center;
-            margin-bottom: 12px;
-        }
-        .offer-header h2 {
-            font-size: 22px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #FFD966, #F5C542);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .limited-badge {
-            background: rgba(229,184,60,0.15);
-            border-radius: 50px;
-            padding: 4px 12px;
-            display: inline-block;
-            font-size: 11px;
-            color: #FFDE9E;
-            border: 1px solid rgba(229,184,60,0.4);
-            margin-bottom: 12px;
-        }
-        
-        .products-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin: 12px 0;
-        }
-        .product-card {
-            background: rgba(0,0,0,0.5);
-            border-radius: 28px;
-            padding: 10px 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 8px;
-            border: 1px solid rgba(229,184,60,0.2);
-            transition: all 0.2s;
-        }
-        .product-card.selected {
-            background: rgba(245,197,66,0.1);
-            border-color: #F5C542;
-        }
-        .product-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex: 2;
-            min-width: 140px;
-        }
-        .product-check {
-            width: 20px;
-            height: 20px;
-            accent-color: #F5C542;
-            cursor: pointer;
-        }
-        .product-name {
-            font-size: 13px;
-            font-weight: 700;
-            color: #FFEFCF;
-        }
-        .product-prices {
-            display: flex;
-            align-items: baseline;
-            gap: 6px;
-        }
-        .old-price {
-            font-size: 12px;
-            color: #a07a2c;
-            text-decoration: line-through;
-        }
-        .new-price {
-            font-size: 15px;
-            font-weight: 800;
-            color: #F5C542;
-        }
-        
-        .selection-summary {
-            background: rgba(245,197,66,0.08);
-            border-radius: 30px;
-            padding: 10px;
-            margin: 12px 0;
-            text-align: center;
-            border: 1px solid rgba(245,197,66,0.2);
-        }
-        .selection-summary p {
-            font-size: 12px;
-            color: #FFDE9E;
-            margin-bottom: 5px;
-        }
-        .total-price-large {
-            font-size: 20px;
-            font-weight: 900;
-            color: #F5C542;
-        }
-        .gift-box {
-            background: rgba(245,197,66,0.12);
-            border-radius: 30px;
-            padding: 10px;
-            margin: 12px 0;
-            text-align: center;
-            font-size: 13px;
-            font-weight: 700;
-            color: #FFDE9E;
-        }
-        .offer-footer-note {
-            font-size: 11px;
-            color: #E5B83C;
-            text-align: center;
-            margin-top: 10px;
-            padding-top: 8px;
-            border-top: 1px solid rgba(229,184,60,0.2);
-        }
-        .confirm-order-btn {
-            background: linear-gradient(95deg, #F5C542, #D4AF37);
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 40px;
-            font-weight: 900;
-            font-size: 15px;
-            color: #1f1909;
-            margin-top: 12px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        /* Success Modal */
+        .offer-modal.show .offer-card { transform: scale(1); }
+        .offer-card::-webkit-scrollbar { width: 3px; }
+        .offer-card::-webkit-scrollbar-track { background: #1a1408; }
+        .offer-card::-webkit-scrollbar-thumb { background: #F5C542; }
+        .offer-header { text-align: center; margin-bottom: 12px; }
+        .offer-header h2 { font-size: 22px; font-weight: 900; background: linear-gradient(135deg, #FFD966, #F5C542); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-flex; align-items: center; gap: 8px; }
+        .limited-badge { background: rgba(229,184,60,0.15); border-radius: 50px; padding: 4px 12px; display: inline-block; font-size: 11px; color: #FFDE9E; border: 1px solid rgba(229,184,60,0.4); margin-bottom: 12px; }
+        .products-grid { display: flex; flex-direction: column; gap: 8px; margin: 12px 0; }
+        .product-card { background: rgba(0,0,0,0.5); border-radius: 28px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; border: 1px solid rgba(229,184,60,0.2); transition: all 0.2s; }
+        .product-card.selected { background: rgba(245,197,66,0.1); border-color: #F5C542; }
+        .product-info { display: flex; align-items: center; gap: 10px; flex: 2; min-width: 140px; }
+        .product-check { width: 20px; height: 20px; accent-color: #F5C542; cursor: pointer; }
+        .product-name { font-size: 13px; font-weight: 700; color: #FFEFCF; }
+        .product-prices { display: flex; align-items: baseline; gap: 6px; }
+        .old-price { font-size: 12px; color: #a07a2c; text-decoration: line-through; }
+        .new-price { font-size: 15px; font-weight: 800; color: #F5C542; }
+        .selection-summary { background: rgba(245,197,66,0.08); border-radius: 30px; padding: 10px; margin: 12px 0; text-align: center; border: 1px solid rgba(245,197,66,0.2); }
+        .selection-summary p { font-size: 12px; color: #FFDE9E; margin-bottom: 5px; }
+        .total-price-large { font-size: 20px; font-weight: 900; color: #F5C542; }
+        .gift-box { background: rgba(245,197,66,0.12); border-radius: 30px; padding: 10px; margin: 12px 0; text-align: center; font-size: 13px; font-weight: 700; color: #FFDE9E; }
+        .offer-footer-note { font-size: 11px; color: #E5B83C; text-align: center; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(229,184,60,0.2); }
+        .confirm-order-btn { background: linear-gradient(95deg, #F5C542, #D4AF37); width: 100%; padding: 12px; border: none; border-radius: 40px; font-weight: 900; font-size: 15px; color: #1f1909; margin-top: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -487,52 +180,13 @@
             padding: 16px;
         }
         .modal-overlay.show { display: flex; }
-        .modal-content {
-            background: #100c06;
-            border: 1px solid #F5C542;
-            border-radius: 36px;
-            padding: 24px 20px;
-            text-align: center;
-            max-width: 340px;
-            width: 100%;
-        }
-        .success-icon {
-            width: 60px;
-            height: 60px;
-            background: #F5C542;
-            border-radius: 50%;
-            margin: 0 auto 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            color: #1a1306;
-        }
-        .btn-wa, .btn-close-modal {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin-top: 8px;
-            border-radius: 35px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 13px;
-            text-align: center;
-        }
+        .modal-content { background: #100c06; border: 1px solid #F5C542; border-radius: 36px; padding: 24px 20px; text-align: center; max-width: 340px; width: 100%; }
+        .success-icon { width: 60px; height: 60px; background: #F5C542; border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 32px; color: #1a1306; }
+        .btn-wa, .btn-close-modal { display: block; width: 100%; padding: 10px; margin-top: 8px; border-radius: 35px; text-decoration: none; font-weight: 800; font-size: 13px; text-align: center; }
         .btn-wa { background: #25D366; color: white; }
         .btn-close-modal { background: rgba(245,197,66,0.15); color: #F5C542; border: 1px solid #F5C542; cursor: pointer; }
-
-        @media (min-width: 768px) {
-            .card { padding: 28px 32px; }
-            .logo-icon { width: 70px; height: 70px; font-size: 36px; }
-            .brand-name { font-size: 34px; }
-        }
-        @media (max-width: 480px) {
-            .product-card { flex-direction: column; align-items: stretch; text-align: center; }
-            .product-info { justify-content: center; }
-            .product-prices { justify-content: center; }
-            .offer-card { padding: 14px; }
-        }
+        @media (min-width: 768px) { .card { padding: 28px 32px; } .logo-icon { width: 70px; height: 70px; font-size: 36px; } .brand-name { font-size: 34px; } }
+        @media (max-width: 480px) { .product-card { flex-direction: column; align-items: stretch; text-align: center; } .product-info { justify-content: center; } .product-prices { justify-content: center; } .offer-card { padding: 14px; } }
     </style>
 </head>
 <body>
@@ -545,81 +199,91 @@
     <div class="gold-ring ring3"></div>
 </div>
 
-<!-- النافذة المنبثقة - تظهر فوراً -->
 <div id="offerModal" class="offer-modal show">
     <div class="offer-card">
         <div class="offer-header">
-            <h2><i class="fas fa-fire"></i> عرض لفترة محدودة <i class="fas fa-stopwatch"></i></h2>
+            <h2><i class="fas fa-fire"></i> 🔥 عرض عيد العمال 🔥 <i class="fas fa-stopwatch"></i></h2>
         </div>
         <div class="limited-badge">
-            <i class="fas fa-clock"></i> العرض ساري حتى نفاذ الكمية
+            <i class="fas fa-clock"></i> العرض لفترة محدودة أو حتى نفاذ الكمية
         </div>
         
         <div class="products-grid" id="productsGrid">
-            <div class="product-card" data-name="💳 فيزا Type-C" data-price="2800">
+            <div class="product-card" data-name="🔥باكيدج الكليات (كاميرا4k + ميني معدله + 10 حجرات)" data-price="10000">
+                <div class="product-info">
+                    <input type="checkbox" class="product-check" id="prod_package">
+                    <label for="prod_package" class="product-name">🔥باكيدج الكليات (كاميرا4k + ميني معدله + 10 حجرات)</label>
+                </div>
+                <div class="product-prices">
+                    <span class="old-price">12000</span>
+                    <span class="new-price">10000 ج.م</span>
+                </div>
+            </div>
+            <div class="product-card" data-name="💳 فيزا Type-C" data-price="2500">
                 <div class="product-info">
                     <input type="checkbox" class="product-check" id="prod1">
                     <label for="prod1" class="product-name">💳 فيزا Type-C</label>
                 </div>
                 <div class="product-prices">
-                    <span class="old-price">3000</span>
-                    <span class="new-price">2800 ج.م</span>
+                    <span class="old-price">2800</span>
+                    <span class="new-price">2500 ج.م</span>
                 </div>
             </div>
-            <div class="product-card" data-name="💳 فيزا معدلة" data-price="3300">
+            <div class="product-card" data-name="💳 فيزا معدلة" data-price="3000">
                 <div class="product-info">
                     <input type="checkbox" class="product-check" id="prod2">
                     <label for="prod2" class="product-name">💳 فيزا معدلة</label>
                 </div>
                 <div class="product-prices">
-                    <span class="old-price">3500</span>
-                    <span class="new-price">3300 ج.م</span>
+                    <span class="old-price">3300</span>
+                    <span class="new-price">3000 ج.م</span>
                 </div>
             </div>
-            <div class="product-card" data-name="🎧 ميني معدلة 🔥" data-price="3500">
+            <div class="product-card" data-name="🎧 ميني معدلة 🔥" data-price="3200">
                 <div class="product-info">
                     <input type="checkbox" class="product-check" id="prod3">
                     <label for="prod3" class="product-name">🎧 ميني معدلة 🔥</label>
+                </div>
+                <div class="product-prices">
+                    <span class="old-price">3500</span>
+                    <span class="new-price">3200 ج.م</span>
+                </div>
+            </div>
+            <div class="product-card" data-name="🧮 سماعة آلة حاسبة" data-price="3600">
+                <div class="product-info">
+                    <input type="checkbox" class="product-check" id="prod4">
+                    <label for="prod4" class="product-name">🧮 سماعة آلة حاسبة</label>
+                </div>
+                <div class="product-prices">
+                    <span class="old-price">4000</span>
+                    <span class="new-price">3600 ج.م</span>
+                </div>
+            </div>
+            <div class="product-card" data-name="👕 تيشيرت / بوكسر / توكة / برا" data-price="3500">
+                <div class="product-info">
+                    <input type="checkbox" class="product-check" id="prod5">
+                    <label for="prod5" class="product-name">👕 تيشيرت / بوكسر / توكة / برا</label>
                 </div>
                 <div class="product-prices">
                     <span class="old-price">4000</span>
                     <span class="new-price">3500 ج.م</span>
                 </div>
             </div>
-            <div class="product-card" data-name="🧮 سماعة آلة حاسبة" data-price="4000">
-                <div class="product-info">
-                    <input type="checkbox" class="product-check" id="prod4">
-                    <label for="prod4" class="product-name">🧮 سماعة آلة حاسبة</label>
-                </div>
-                <div class="product-prices">
-                    <span class="old-price">4500</span>
-                    <span class="new-price">4000 ج.م</span>
-                </div>
-            </div>
-            <div class="product-card" data-name="👕 تيشيرت / بوكسر / توكة / برا" data-price="4000">
-                <div class="product-info">
-                    <input type="checkbox" class="product-check" id="prod5">
-                    <label for="prod5" class="product-name">👕 تيشيرت / بوكسر / توكة / برا</label>
-                </div>
-                <div class="product-prices">
-                    <span class="old-price">4500</span>
-                    <span class="new-price">4000 ج.م</span>
-                </div>
-            </div>
-            <div class="product-card" data-name="📦 علبة حجر سوني (10 حجرات)" data-price="500">
+            <div class="product-card" data-name="📦 علبة الحجر السوني الاصليه (10 حجرات)" data-price="400">
                 <div class="product-info">
                     <input type="checkbox" class="product-check" id="prod6">
-                    <label for="prod6" class="product-name">📦 علبة حجر سوني (10 حجرات)</label>
+                    <label for="prod6" class="product-name">📦 علبة الحجر السوني الاصليه (10 حجرات)</label>
                 </div>
                 <div class="product-prices">
                     <span class="old-price">700</span>
-                    <span class="new-price">500 ج.م</span>
+                    <span class="new-price">400 ج.م</span>
                 </div>
             </div>
-            <div class="product-card" data-name="👂 البزره (سماعة داخل الأذن فقط)" data-price="800">
+            <!-- البذره A808 -->
+            <div class="product-card" data-name="👂 البذره A808 (سماعة داخل الأذن)" data-price="800">
                 <div class="product-info">
                     <input type="checkbox" class="product-check" id="prod7">
-                    <label for="prod7" class="product-name">👂 البزره (سماعة داخل الأذن فقط)</label>
+                    <label for="prod7" class="product-name">👂 البذره A808 (سماعة داخل الأذن)</label>
                 </div>
                 <div class="product-prices">
                     <span class="old-price">1000</span>
@@ -635,7 +299,7 @@
         </div>
 
         <div class="gift-box">
-            <i class="fas fa-gift"></i> 🎁 مع كل سماعة: 2 حجر سوني هدية
+            <i class="fas fa-gift"></i> 🎁 مع كل سماعة: حجر سوني هدية ❤️
         </div>
         <div class="offer-footer-note">
             ⏳ العرض لفترة محدودة أو حتى نفاذ الكمية
@@ -803,7 +467,6 @@
         setTimeout(() => document.querySelector('.card').scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
     });
     
-    // Date limits
     const today = new Date();
     const todayStr = today.toISOString().split('T')[0];
     const maxDate = new Date(today);
@@ -824,7 +487,6 @@
         document.getElementById(errId).classList.remove('show');
     }
     
-    // Typing animation
     const phrases = ["سماعات الثانوية العامة", "أداء خارق 2026", "تكنولوجيا صامتة", "Abo Zahra Elite"];
     let idx = 0, charIndex = 0, current = "", deleting = false;
     const span = document.getElementById("animatedText");
