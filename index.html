@@ -113,7 +113,6 @@
         .feature-item i { font-size: 18px; color: #F5C542; margin-bottom: 3px; display: block; }
         .feature-item span { font-size: 10px; color: #FFDE9E; font-weight: 600; }
         
-        /* Offer Modal Styles with Quantity */
         .offer-modal {
             position: fixed;
             top: 0;
@@ -159,6 +158,7 @@
         .product-info { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
         .product-name-area { flex: 2; min-width: 150px; }
         .product-name { font-size: 14px; font-weight: 700; color: #FFEFCF; display: block; }
+        .product-desc { font-size: 10px; color: #D4AF37; margin-top: 2px; }
         .old-price { font-size: 11px; color: #a07a2c; text-decoration: line-through; margin-left: 6px; }
         .new-price { font-size: 15px; font-weight: 800; color: #F5C542; }
         
@@ -219,7 +219,7 @@
 <div id="offerModal" class="offer-modal show">
     <div class="offer-card">
         <div class="offer-header">
-            <h2><i class="fas fa-fire"></i> 🔥 عرض عيد العمال 🔥 <i class="fas fa-stopwatch"></i></h2>
+            <h2><i class="fas fa-fire"></i> 🔥 عرض خاص الباكدج 🔥 <i class="fas fa-stopwatch"></i></h2>
         </div>
         <div class="limited-badge">
             <i class="fas fa-clock"></i> العرض لفترة محدودة أو حتى نفاذ الكمية
@@ -337,16 +337,16 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-    // المنتجات مع الأسعار
+    // المنتجات مع الأسعار الجديدة
     const products = [
-        { id: 0, name: "🔥باكيدج الكليات (كاميرا4k + ميني معدله + 10 حجرات)", price: 10000, oldPrice: 12000 },
-        { id: 1, name: "💳 فيزا Type-C", price: 2800, oldPrice: 3000 },
-        { id: 2, name: "💳 فيزا معدلة", price: 3300, oldPrice: 3500 },
-        { id: 3, name: "🎧 ميني معدلة 🔥", price: 3500, oldPrice: 4000 },
-        { id: 4, name: "🧮 سماعة آلة حاسبة", price: 4000, oldPrice: 4500 },
-        { id: 5, name: "👕 تيشيرت / بوكسر / توكة / برا", price: 3800, oldPrice: 4300 },
-        { id: 6, name: "📦 علبة الحجر السوني الاصليه (10 حجرات)", price: 500, oldPrice: 800 },
-        { id: 7, name: "👂 البذره A808 (سماعة داخل الأذن)", price: 800, oldPrice: 1000 }
+        { id: 0, name: "🔥 باكيدج الكليات (كاميرا 4K + ميني معدلة)", price: 12000, oldPrice: 15000, desc: "" },
+        { id: 1, name: "💳 فيزا Type-C", price: 3000, oldPrice: 3400, desc: "" },
+        { id: 2, name: "💳 فيزا معدلة", price: 3500, oldPrice: 4000, desc: "" },
+        { id: 3, name: "🎧 ميني معدلة 🔥", price: 3500, oldPrice: 4000, desc: "" },
+        { id: 4, name: "🧮 سماعة آلة حاسبة", price: 4500, oldPrice: 5000, desc: "" },
+        { id: 5, name: "👕 بوكسر / توكة / برا", price: 4000, oldPrice: 4500, desc: "" },
+        { id: 6, name: "📦 علبة حجر سوني أصلية", price: 500, oldPrice: 800, desc: "يوجد بها 10 حجرات" },
+        { id: 7, name: "👂 بذرة أذن فقط (بدون جهاز)", price: 1000, oldPrice: 1500, desc: "🔴 مخصصة لمن فقد البذرة الخاصة به" }
     ];
 
     let quantities = [0, 0, 0, 0, 0, 0, 0, 0];
@@ -362,6 +362,7 @@
                 <div class="product-info">
                     <div class="product-name-area">
                         <span class="product-name">${product.name}</span>
+                        ${product.desc ? `<div class="product-desc"><i class="fas fa-info-circle"></i> ${product.desc}</div>` : ''}
                         <div>
                             <span class="old-price">${product.oldPrice} ج.م</span>
                             <span class="new-price">${product.price} ج.م</span>
@@ -405,7 +406,9 @@
         let total = 0;
         products.forEach((product, idx) => {
             if (quantities[idx] > 0) {
-                selectedItems.push(`${product.name} × ${quantities[idx]} = ${quantities[idx] * product.price} ج.م`);
+                let itemText = `${product.name} × ${quantities[idx]} = ${quantities[idx] * product.price} ج.م`;
+                if (product.desc) itemText += ` (${product.desc})`;
+                selectedItems.push(itemText);
                 total += quantities[idx] * product.price;
             }
         });
@@ -443,7 +446,9 @@
         let total = 0;
         products.forEach((product, idx) => {
             if (quantities[idx] > 0) {
-                selectedProductsList.push(`${product.name} × ${quantities[idx]} = ${quantities[idx] * product.price} ج.م`);
+                let itemText = `${product.name} × ${quantities[idx]} = ${quantities[idx] * product.price} ج.م`;
+                if (product.desc) itemText += ` (${product.desc})`;
+                selectedProductsList.push(itemText);
                 total += quantities[idx] * product.price;
             }
         });
@@ -477,15 +482,15 @@
     }
     
     const phrases = ["سماعات الثانوية العامة", "أداء خارق 2026", "تكنولوجيا صامتة", "Abo Zahra Elite"];
-    let idx = 0, charIndex = 0, current = "", deleting = false;
+    let idx2 = 0, charIndex = 0, current = "", deleting = false;
     const span = document.getElementById("animatedText");
     function type() {
-        const full = phrases[idx];
+        const full = phrases[idx2];
         if(deleting) { current = full.substring(0, charIndex-1); charIndex--; }
         else { current = full.substring(0, charIndex+1); charIndex++; }
         span.innerText = current;
         if(!deleting && charIndex === full.length) { deleting = true; setTimeout(type, 1800); }
-        else if(deleting && charIndex === 0) { deleting = false; idx = (idx+1)%phrases.length; setTimeout(type, 300); }
+        else if(deleting && charIndex === 0) { deleting = false; idx2 = (idx2+1)%phrases.length; setTimeout(type, 300); }
         else { setTimeout(type, deleting ? 50 : 80); }
     }
     type();
