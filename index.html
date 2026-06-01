@@ -219,7 +219,7 @@
 <div id="offerModal" class="offer-modal show">
     <div class="offer-card">
         <div class="offer-header">
-            <h2><i class="fas fa-fire"></i> 🔥 عرض خاص الباكدج 🔥 <i class="fas fa-stopwatch"></i></h2>
+            <h2><i class="fas fa-fire"></i> 🔥 عرض خاص 🔥 <i class="fas fa-stopwatch"></i></h2>
         </div>
         <div class="limited-badge">
             <i class="fas fa-clock"></i> العرض لفترة محدودة أو حتى نفاذ الكمية
@@ -235,6 +235,9 @@
 
         <div class="gift-box">
             <i class="fas fa-gift"></i> 🎁 مع كل سماعة: حجر سوني هدية ❤️
+        </div>
+        <div class="offer-footer-note">
+            ⚠️ لا أنصح باستخدام البذرة المغناطيس لأنها غير جيدة وغير عملية في الاستخدام
         </div>
         <div class="offer-footer-note">
             ⏳ العرض لفترة محدودة أو حتى نفاذ الكمية
@@ -337,19 +340,16 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-    // المنتجات مع الأسعار الجديدة
+    // قائمة المنتجات المعدلة - الحجر بالقطعة والعلبة كاملة
     const products = [
-        { id: 0, name: "🔥 باكيدج الكليات (كاميرا 4K + ميني معدلة)", price: 12000, oldPrice: 15000, desc: "" },
-        { id: 1, name: "💳 فيزا Type-C", price: 3000, oldPrice: 3400, desc: "" },
-        { id: 2, name: "💳 فيزا معدلة", price: 3500, oldPrice: 4000, desc: "" },
-        { id: 3, name: "🎧 ميني معدلة 🔥", price: 3500, oldPrice: 4000, desc: "" },
-        { id: 4, name: "🧮 سماعة آلة حاسبة", price: 4500, oldPrice: 5000, desc: "" },
-        { id: 5, name: "👕 بوكسر / توكة / برا", price: 4000, oldPrice: 4500, desc: "" },
-        { id: 6, name: "📦 علبة حجر سوني أصلية", price: 500, oldPrice: 800, desc: "يوجد بها 10 حجرات" },
-        { id: 7, name: "👂 بذرة أذن فقط (بدون جهاز)", price: 1000, oldPrice: 1500, desc: "🔴 مخصصة لمن فقد البذرة الخاصة به" }
+        { id: 0, name: "💳 فيزا Type-C", price: 3000, oldPrice: 3400, desc: "" },
+        { id: 1, name: "💳 فيزا معدلة", price: 3500, oldPrice: 4000, desc: "" },
+        { id: 2, name: "🎧 ميني معدلة 🔥", price: 3500, oldPrice: 4000, desc: "" },
+        { id: 3, name: "🔴 حجر سوني (حجر واحد)", price: 50, oldPrice: 80, desc: "" },
+        { id: 4, name: "📦 علبة حجر سوني كاملة", price: 500, oldPrice: 800, desc: "العلبة يوجد بها 10 حجاير" }
     ];
 
-    let quantities = [0, 0, 0, 0, 0, 0, 0, 0];
+    let quantities = [0, 0, 0, 0, 0];
 
     function renderProducts() {
         const grid = document.getElementById('productsGrid');
@@ -531,7 +531,7 @@
             successModal.classList.add('show');
             form.reset();
             deviceInput.value = '';
-            quantities = [0, 0, 0, 0, 0, 0, 0, 0];
+            quantities = [0, 0, 0, 0, 0];
             renderProducts();
             updateSummary();
         } catch(err) { alert("حدث خطأ تقني"); }
